@@ -9,7 +9,7 @@ module.exports = {
     },
     name: { allowNull: false, type: Sequelize.STRING },
     price: { allowNull: false, type: Sequelize.DECIMAL(10, 2) },
-    urlImage: { allowNull: false, type: Sequelize.STRING, field: 'url_image' },
+    url_image: { allowNull: false, type: Sequelize.STRING },
    });
   },
 
