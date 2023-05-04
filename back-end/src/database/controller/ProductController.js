@@ -26,7 +26,7 @@ const create = async (req, res) => {
   return res.status(200).json(newProduct);
 };
 
-module.exports = user = {
+module.exports = {
   getAll,
   getById,
   create,
