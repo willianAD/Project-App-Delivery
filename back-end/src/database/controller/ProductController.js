@@ -47,7 +47,7 @@ const remove = async (req, res) => {
   return res.status(200).json({ message: 'Product deleted successfully!' });
 };
 
-module.exports = user = {
+module.exports = {
   getAll,
   getById,
   create,

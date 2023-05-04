@@ -6,6 +6,6 @@ const getAll = async (_req, res) => {
   return res.status(200).json(allUsers);
 };
 
-module.exports = user = {
+module.exports = {
   getAll,
 };
