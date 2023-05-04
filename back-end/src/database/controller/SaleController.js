@@ -13,7 +13,17 @@ const getById = async (req, res) => {
   return res.status(200).json(saleId);
 };
 
+const create = async (req, res) => {
+  const sale = req.body;
+
+  const saleCreated = await saleService.create(sale);
+  console.log(new Date().toLocaleString('pt-BR'));
+
+  return res.status(201).json(saleCreated);
+};
+
 module.exports = {
   getAll,
   getById,
+  create,
 };
