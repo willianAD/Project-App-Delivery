@@ -1,4 +1,14 @@
-const { User } =  require('../models');
+const { User } = require('../models');
+
+const findOneLogin = async (email) => {
+    const result = await this.model.findOne({ where: { email } });
+    return result;
+  };
+
+const findOneRole = async (role) => {
+    const result = await this.model.findOne({ where: { role } });
+    return result;
+  };
 
 const getAll = () => User.findAll();
 
@@ -10,4 +20,6 @@ module.exports = {
   getAll,
   create,
   getById,
+  findOneRole,
+  findOneLogin,
 };
