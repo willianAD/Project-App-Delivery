@@ -2,7 +2,7 @@ const { Product } = require('../models');
 
 const getAll = () => Product.findAll();
 
-const create = (product) => Product.create(product);
+const create = ({name, price, urlImage}) => Product.create({name, price, urlImage});
 
 const getById = (id) => Product.findByPk(id);
 
