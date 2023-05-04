@@ -10,5 +10,5 @@ productRoutes.get('/', product.getAll);
 productRoutes.post('/', product.create);
 
 module.exports = {
-  productRoutes
+  productRoutes,
 };
