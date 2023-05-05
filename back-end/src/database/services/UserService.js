@@ -1,12 +1,13 @@
 const { User } = require('../models');
 
-const findOneLogin = async (email) => {
-    const result = await this.model.findOne({ where: { email } });
+const findOneLogin = async ({ email }) => {
+    const result = await User.findOne({
+       where: { email } });
     return result;
   };
 
 const findOneRole = async (role) => {
-    const result = await this.model.findOne({ where: { role } });
+    const result = await User.findOne({ where: { role } });
     return result;
   };
 

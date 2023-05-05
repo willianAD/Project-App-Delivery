@@ -6,5 +6,5 @@ const productRoutes = express();
 productRoutes.get('/', product.getAll);
 
 module.exports = {
-  productRoutes
+  productRoutes,
 };
