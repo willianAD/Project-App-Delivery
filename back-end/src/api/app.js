@@ -1,5 +1,5 @@
 const express = require('express');
-const { userRoutes, productRoutes, salesProductsRoutes } = require('../database/routes');
+const { userRoutes, productRoutes, saleRoutes } = require('../database/routes');
 
 const app = express();
 
@@ -11,6 +11,6 @@ app.use('/user', userRoutes);
 
 app.use('/product', productRoutes);
 
-app.use('/seller/orders/details', salesProductsRoutes);
+app.use('/seller/orders/details', saleRoutes);
 
 module.exports = app;

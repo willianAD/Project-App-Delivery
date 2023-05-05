@@ -1,6 +1,6 @@
 const { Sale, Product } = require('../models');
 
-const getAllById = (saleId) => Sale.findAll({
+const getDetailsById = (saleId) => Sale.findAll({
   where: { id: saleId },
   include: [
     { model: Product, as: 'products' },
@@ -8,5 +8,5 @@ const getAllById = (saleId) => Sale.findAll({
 });
 
 module.exports = {
-  getAllById,
+  getDetailsById,
 };
