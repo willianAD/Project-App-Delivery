@@ -13,4 +13,6 @@ app.use('/product', productRoutes);
 
 app.use('/seller/orders/details', saleRoutes);
 
+app.use('/seller', saleRoutes);
+
 module.exports = app;
