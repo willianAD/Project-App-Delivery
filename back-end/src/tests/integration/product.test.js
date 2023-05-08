@@ -8,10 +8,6 @@ use(chaiHttp);
 const app = require('../../api/app');
 const { allProducts, productMock } = require('./mocks/product.mock');
 
-const consoleLogStub = stub(console, 'log');
-before(() => consoleLogStub.returns(true));
-after(() => consoleLogStub.restore());
-
 describe(' Verifica a rota Product', () => {
   describe('get: ', () => {
     describe('quando tenta verificar todos os itens do banco', () => {
