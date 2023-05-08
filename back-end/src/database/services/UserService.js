@@ -1,4 +1,5 @@
 const { User } = require('../models');
+
 const { Op } = require("sequelize");
 
 const findOneLogin = async (email, name = '') => {
