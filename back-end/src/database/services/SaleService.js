@@ -6,8 +6,8 @@ const getAllById = (id) => Sale.findAll({ where: { sellerId: id }});
 
 const create = (sale) => Sale.create(
   { 
-    userId: 1,
-    sellerId: 1,
+    userId: sale.userId,
+    sellerId: sale.sellerId,
     totalPrice: sale.totalPrice,
     deliveryAddress: sale.deliveryAddress,
     deliveryNumber: sale.deliveryNumber,
