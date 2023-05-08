@@ -21,12 +21,12 @@ const create = async (req, res) => {
   // const secret = process.env.JWT_SECRET || 'segredo';
   // const { data } = jwt.verify(token, secret);
 
-  const newProduct = await productService.create({name, price, urlImage});
+  const newProduct = await productService.create({ name, price, urlImage });
 
   return res.status(200).json(newProduct);
 };
 
-module.exports = user = {
+module.exports = {
   getAll,
   getById,
   create,
