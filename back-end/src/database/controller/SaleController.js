@@ -6,11 +6,11 @@ const getAll = async (_req, res) => {
   return res.status(200).json(allSales);
 };
 
-const getById = async (req, res) => {
+const getAllById = async (req, res) => {
   const { id } = req.params;
-  const saleId = await saleService.getById(id);
+  const allSales = await saleService.getAllById(id);
 
-  return res.status(200).json(saleId);
+  return res.status(200).json(allSales);
 };
 
 const create = async (req, res) => {
@@ -24,6 +24,6 @@ const create = async (req, res) => {
 
 module.exports = {
   getAll,
-  getById,
+  getAllById,
   create,
 };

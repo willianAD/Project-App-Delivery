@@ -3,7 +3,7 @@ const { sale } = require('../controller');
 
 const saleRoutes = express();
 
-saleRoutes.get('/orders/:id', sale.getById);
+saleRoutes.get('/orders/:id', sale.getAllById);
 
 saleRoutes.get('/orders', sale.getAll);
 

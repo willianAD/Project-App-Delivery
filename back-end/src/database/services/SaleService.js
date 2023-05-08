@@ -2,7 +2,7 @@ const { Sale } = require('../models');
 
 const getAll = () => Sale.findAll();
 
-const getById = (id) => Sale.findByPk(id);
+const getAllById = (id) => Sale.findAll({ where: { sellerId: id }});
 
 const create = (sale) => Sale.create(
   { 
@@ -18,6 +18,6 @@ const create = (sale) => Sale.create(
 
 module.exports = {
   getAll,
-  getById,
+  getAllById,
   create,
 };
