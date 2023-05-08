@@ -15,5 +15,5 @@ productRoutes.put('/:id', product.update);
 productRoutes.delete('/:id', product.remove);
 
 module.exports = {
-  productRoutes
+  productRoutes,
 };
