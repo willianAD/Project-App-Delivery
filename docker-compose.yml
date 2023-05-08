@@ -6,6 +6,8 @@ services:
       - 3000:3000
     platform: linux/x86_64
     working_dir: /app-frontend
+    volumes: 
+      - ./front-end/src:/app-frontend/src
     depends_on:
       - backend
   backend:

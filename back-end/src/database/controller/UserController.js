@@ -1,22 +1,18 @@
 const { userService } = require('../services');
+const bcrypt = require('bcrypt');
 const { generateToken } = require('../auth/authToken');
 
 const login = async (req, res) => {
-  const { email } = req.data;
+    const { name, email, password } = req.body;
 
-    const token = generateToken({ email, role: 'user' });
+    const user = await userService.findOneLogin(email);
+    
+    const decryptPassword = bcrypt.compareSync(password, user.password);
+
+    if (!decryptPassword) return res.status(400).json({ message: 'Invalid password.' });
+ 
+    const token = generateToken({ name, email });
     return res.status(200).json({ token });
-
-  // try {
-  //   const { email } = req.data;
-
-  //   const token = generateToken({ email, role: 'user' });
-
-  //   return res.status(200).json({ token });
-  // } catch (error) {
-  //   console.error(error);
-  //   return res.status(500).json({ message: 'Internal server error' });
-  // }
 };
 
 const getAll = async (_req, res) => {
@@ -25,7 +21,22 @@ const getAll = async (_req, res) => {
   return res.status(200).json(allUsers);
 };
 
+const create = async (req, res) => {
+  const { name, email, password } = req.body;
+
+  const salt = bcrypt.genSaltSync(5);
+
+  const passwordHash = bcrypt.hashSync(password, salt);
+
+  await userService.create({ name, email, password: passwordHash, role: 'customer' });
+
+  const token = generateToken({ name, email });
+
+  return res.status(200).json({ token });
+};
+
 module.exports = {
   getAll,
   login,
+  create,
 };

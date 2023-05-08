@@ -1,32 +1,23 @@
-import { Request, Response } from 'express';
-import { IUser } from '../intefaces/IUser';
-import { generateToken } from '../authToken';
-import { User } from '../models/User';
+const { validateLoginSchema } = require('../../validations/validations');
+const { findOneLogin } = require('../services/UserService');
 
-export const login = async (req: Request, res: Response) => {
-  try {
-    const { email, password } = req.body;
+const validateRegister = async (req, res, next) => {
+  const { name, email, password } = req.body;
+  const validateResponse = validateLoginSchema({ name, email, password });
 
-    // Verificar se o email e senha estão presentes na requisição
-    if (!email || !password) {
-      return res.status(400).json({ error: 'Email e senha são obrigatórios' });
-    }
+  if (validateResponse.error) return res.status(400)
+      .json({ message: 'Some required fields are missing' });
 
-    // Buscar o usuário no banco de dados com base no email
-    const user: IUser | null = await User.findOne({
-      where: { email },
-    });
+  const user = await findOneLogin(email, name);
 
-    // Verificar se o usuário existe e se a senha está correta
-    if (!user || user.password !== password) {
-      return res.status(401).json({ error: 'Email ou senha incorretos' });
-    }
+  console.log(user);
 
-    // Gerar um token JWT e enviar na resposta
-    const token = generateToken({ email: user.email, role: user.role });
-    return res.json({ token });
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({ error: 'Erro ao fazer login' });
-  }
+  if (user) return res.status(400).json({ message: 'Invalid fields' });
+
+  req.data = user;
+  return next();
+};
+
+module.exports = {
+  validateRegister,
 };
