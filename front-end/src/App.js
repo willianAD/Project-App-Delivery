@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Login from './pages/Login';
 import admin from './pages/Admin';
 import Register from './pages/Register';
+import SellerOrders from './pages/SellerOrders';
 
 function App() {
   return (
