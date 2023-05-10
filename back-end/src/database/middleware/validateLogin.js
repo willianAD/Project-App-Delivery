@@ -8,7 +8,7 @@ const validateLogin = async (req, res, next) => {
 
   const user = await findOneLogin(email, name);
 
-  if (!user) return res.status(400).json({ message: 'Invalid fields' });
+  if (!user) return res.status(404).json({ message: 'Not Found' });
 
   req.data = user;
   return next();

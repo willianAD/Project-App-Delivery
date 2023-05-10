@@ -7,6 +7,8 @@ const userRoutes = express();
 
 userRoutes.get('/', user.getAll);
 
+userRoutes.post('/email', user.getUser);
+
 userRoutes.post('/login', validateLogin, user.login);
 
 userRoutes.post('/', validateRegister, user.create);
