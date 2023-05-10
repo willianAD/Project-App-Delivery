@@ -57,7 +57,12 @@ class SaleDetails extends React.Component {
           >
             Preparar pedido
           </button>
-          <button type="button">Saiu para entrega</button>
+          <button
+            data-testid="seller_order_details__button-dispatch-check"
+            type="button"
+          >
+            Saiu para entrega
+          </button>
         </div>
         {
           (isLoading) ? (<p>Carregando...</p>) : (
@@ -66,7 +71,9 @@ class SaleDetails extends React.Component {
             </div>
           )
         }
-        <h2>
+        <h2
+          data-testid="seller_order_details__element-order-total-price"
+        >
           {`Total: R$${totalCalculate(products).toFixed(2)}`}
         </h2>
       </>
