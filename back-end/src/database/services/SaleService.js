@@ -9,7 +9,7 @@ const getDetailsById = (saleId) => Sale.findAll({
 
 const getAll = () => Sale.findAll();
 
-const getAllById = (id) => Sale.findAll({ where: { sellerId: id }});
+const getAllById = (id) => Sale.findAll({ where: { sellerId: id } });
 
 const create = (sale) => Sale.create(
   { 
@@ -18,7 +18,7 @@ const create = (sale) => Sale.create(
     totalPrice: sale.totalPrice,
     deliveryAddress: sale.deliveryAddress,
     deliveryNumber: sale.deliveryNumber,
-    saleDate: (new Date().toLocaleString('pt-BR')).toString(),
+    saleDate: (new Date()),
     status: sale.status,
   },
 );
