@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Navbar from '../components/SellerOrders/Navbar';
 import OrderCard from '../components/SellerOrders/OrderCard';
 import { requestGet } from '../services/request';
+import Navbar from '../components/SellerOrders/Navbar';
 
 class SellerOrders extends Component {
   constructor() {

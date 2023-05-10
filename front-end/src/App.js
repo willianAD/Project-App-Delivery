@@ -7,6 +7,7 @@ import CustomerOrders from './pages/CustomerOrders';
 import Products from './pages/Products';
 import Checkout from './pages/Checkout';
 import Orders from './pages/Orders';
+import SellerOrders from './pages/SellerOrders';
 
 function App() {
   return (
