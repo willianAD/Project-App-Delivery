@@ -5,14 +5,12 @@ const validateRegister = async (req, res, next) => {
   const { name, email, password } = req.body;
   const validateResponse = validateLoginSchema({ name, email, password });
 
-  if (validateResponse.error) return res.status(400)
+  if (validateResponse.error) return res.status(404)
       .json({ message: 'Some required fields are missing' });
 
   const user = await findOneLogin(email, name);
 
-  console.log(user);
-
-  if (user) return res.status(400).json({ message: 'Invalid fields' });
+  if (user) return res.status(409).json({ message: 'Conflict' });
 
   req.data = user;
   return next();
