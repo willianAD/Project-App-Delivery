@@ -1,13 +1,13 @@
 const { userService } = require('../services');
-const bcrypt = require('bcrypt');
+const md5 = require('md5');
 const { generateToken } = require('../auth/authToken');
 
 const login = async (req, res) => {
   const { name, email, password } = req.body;
 
   const user = await userService.findOneLogin(email);
-  
-  const decryptPassword = bcrypt.compareSync(password, user.password);
+
+  const decryptPassword = md5(password) === user.password;
 
   if (!decryptPassword) return res.status(404).json({ message: 'Not found' });
 
@@ -21,12 +21,17 @@ const getAll = async (_req, res) => {
   return res.status(200).json(allUsers);
 };
 
+const getUser = async (req, res) => {
+  const { email } = req.body;
+  const user = await userService.findOneEmail(email);
+
+  return res.status(200).json(user);
+};
+
 const create = async (req, res) => {
   const { name, email, password } = req.body;
 
-  const salt = bcrypt.genSaltSync(5);
-
-  const passwordHash = bcrypt.hashSync(password, salt);
+  const passwordHash = md5(password);
 
   await userService.create({ name, email, password: passwordHash, role: 'customer' });
 
@@ -38,5 +43,6 @@ const create = async (req, res) => {
 module.exports = {
   getAll,
   login,
+  getUser,
   create,
 };

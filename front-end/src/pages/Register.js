@@ -38,8 +38,9 @@ class Register extends React.Component {
 
       const { token } = await requestPost('/user', { name, email, password });
 
-      localStorage.setItem('token', JSON.stringify({ token }));
-      localStorage.setItem('user', JSON.stringify({ name, email }));
+      localStorage.setItem('user', JSON.stringify({
+        name, email, role: 'customer', token,
+      }));
 
       history.push('/customer/products');
     } catch (error) {

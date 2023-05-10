@@ -13,6 +13,11 @@ const findOneLogin = async (email, name = '') => {
   return result;
 };
 
+const findOneEmail = async (email) => {
+  const result = await User.findOne({ where: { email } });
+  return result;
+};
+
 const findOneRole = async (role) => {
   const result = await User.findOne({ where: { role } });
   return result;
@@ -30,4 +35,5 @@ module.exports = {
   getById,
   findOneRole,
   findOneLogin,
+  findOneEmail,
 };
