@@ -9,11 +9,6 @@ class SellerOrders extends Component {
     // ESSE ESTADO É SÓ UM EXEMPLO, O VERDADEIRO ESTADO
     // PRECISA VIR DAS INFORMAÇÕES DO BANCO DE DADOS
     this.state = {
-      // orderNum: 0,
-      // status: 'status',
-      // orderDate: '10/05/23',
-      // orderPrice: 0,
-      // orderAddress: 'address',
       ordersArray: [],
     };
   }
@@ -29,11 +24,6 @@ class SellerOrders extends Component {
 
   render() {
     const {
-      // orderAddress,
-      // orderDate,
-      // orderNum,
-      // orderPrice,
-      // status,
       ordersArray,
     } = this.state;
 
@@ -51,21 +41,10 @@ class SellerOrders extends Component {
             orderNum={ order.id }
             status={ order.status }
             saleDate={ order.saleDate }
-            // totalPrice={ `R$ ${order.totalPrice.replace('.', ',')}` }
             totalPrice={ order.totalPrice }
             deliveryAddress={ order.deliveryAddress }
           />
         )) }
-
-        {/* <div>
-          <OrderCard
-            orderNum={ orderNum }
-            status={ status }
-            orderDate={ orderDate }
-            orderPrice={ orderPrice }
-            orderAddress={ orderAddress }
-          />
-        </div> */}
 
       </main>
     );
