@@ -3,19 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-
 class NavBar extends React.Component {
-
   constructor() {
     super();
   }
-
-  // handleSubmit = (path) => {
-  //   // const { history } = this.props;
-  //   // this.history.push(path);
-  //   console.log(this.props.history)
-  // };
-
 
   render() {
     return (
@@ -26,7 +17,7 @@ class NavBar extends React.Component {
         >
         Produtos
       </Link>
-      <Link to='/'>
+      <Link to='/checkout'>
         Meus pedidos
       </Link>
       <p
@@ -41,11 +32,5 @@ class NavBar extends React.Component {
     );
   }
 }
-
-// NavBar.propTypes = {
-//   history: PropTypes.shape({
-//     push: PropTypes.func,
-//   }).isRequired,
-// };
 
   export default connect()(NavBar);
