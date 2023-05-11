@@ -28,6 +28,7 @@ services:
       - JWT_SECRET=jwt_secret
       # Os dados abaixo se referem ao container `db`
       # Dica: Relembre aqui da comunicação interna entre containers
+      - NODE_ENV=development
       - MYSQL_USER=root
       - MYSQL_PASSWORD=123456
       - MYSQL_HOST=db
