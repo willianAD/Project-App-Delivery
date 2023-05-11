@@ -8,12 +8,15 @@ class Products extends React.Component {
   constructor() {
     super();
     this.state = {
-      products: []
+      products: [],
+      shoppingCart: {},
+      shoppingCartValue: 0.00
     };
   }
 
   componentDidMount() {
     this.getProducts();
+    this.getShoppingCart();
   };
 
   getProducts = async () => {
@@ -22,6 +25,28 @@ class Products extends React.Component {
       products: products,
     });
   }
+
+  getShoppingCart = () => {
+    const shoppingCart = localStorage.getItem('shoppingCart');
+    if (shoppingCart === null) {
+      localStorage.setItem('shoppingCart', JSON.stringify({}))
+    } else {
+      this.setState({
+        shoppingCart: JSON.parse(shoppingCart)
+      })
+    }
+  };
+
+  addCart = (item, itemPrice) => {
+    const { shoppingCart, shoppingCartValue } = this.state;
+    this.setState({
+      shoppingCart: {
+        ...shoppingCart,
+        [item]: shoppingCart[item] === undefined ? 1 : shoppingCart[item] + 1
+      },
+      shoppingCartValue: shoppingCartValue + Number(itemPrice)
+    })
+  };
 
   render() {
     return (
@@ -52,9 +77,13 @@ class Products extends React.Component {
               >
                 -
               </button>
-              <p data-testid={`customer_products__input-card-quantity-${index}`}></p>
+              <p
+                data-testid={`customer_products__input-card-quantity-${index}`}>
+                  { this.state.shoppingCart[product.name] === undefined ? 0 : this.state.shoppingCart[product.name] }
+              </p>
               <button
                 data-testid={`customer_products__button-card-add-item-${index}`}
+                onClick={() => this.addCart(product.name, product.price)}
               >
                 +
               </button>
