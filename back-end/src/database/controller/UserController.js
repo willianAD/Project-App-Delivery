@@ -12,7 +12,6 @@ const login = async (req, res) => {
   if (!decryptPassword) return res.status(404).json({ message: 'Not found' });
 
   const token = await generateToken({ name, email });
-  console.log(token);
   return res.status(200).json({ token });
 };
 

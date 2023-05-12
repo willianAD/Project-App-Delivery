@@ -17,9 +17,4 @@ class PageNotFound extends React.Component {
   }
 }
 
-//  {
-//   "email": "fulana@deliveryapp.com",
-//   "password": "fulana@123"
-// }
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImVtYWlsIjoiZnVsYW5hQGRlbGl2ZXJ5YXBwLmNvbSJ9LCJpYXQiOjE2ODM5MTU1NjgsImV4cCI6MTY4NDUyMDM2OH0.ADZE8dWgqkTCX4Iox_jnGcNDOCWETasL5oHtFMa7jmg
 export default PageNotFound;

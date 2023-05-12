@@ -1,5 +1,5 @@
 import React from 'react';
-import { requestDelete, requestGet } from '../services/request';
+import { requestDelete, requestGet, setToken } from '../services/request';
 
 class AdminList extends React.Component {
   constructor() {
@@ -12,9 +12,14 @@ class AdminList extends React.Component {
   async componentDidMount() {
     const users = await requestGet('/user');
     this.setState({ users });
-    console.log(users);
+
     const { token } = JSON.parse(localStorage.getItem('user'));
     setToken(token);
+  }
+
+  async componentDidUpdate() {
+    const users = await requestGet('/user');
+    this.setState({ users });
   }
 
   handleDelete = async ({ target }) => {
@@ -60,7 +65,7 @@ class AdminList extends React.Component {
                 <td>
                   <button
                     type="button"
-                    data-testid={ `admin_manage__element-user-table-remove-${i}` }
+                    data-testid={ `admin_manage__element-user-table-remove-${ele.id}` }
                     value={ ele.id }
                     onClick={ this.handleDelete }
                   >
@@ -70,6 +75,7 @@ class AdminList extends React.Component {
               </tr>))}
           </tbody>
         </table>
+        {users.length === 0 ? <h2>Não existe nenhum usuário cadastrado!</h2> : null}
       </div>
     );
   }

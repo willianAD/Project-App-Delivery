@@ -74,7 +74,7 @@ class Admin extends React.Component {
                       Email e Password devem ser validos!
                     </span>
                   ) : null}
-                <label htmlFor="name">
+                <label htmlFor="name" className="inputPai-admin">
                   Nome
                   <input
                     id="name"
@@ -86,7 +86,7 @@ class Admin extends React.Component {
                     onChange={ this.handleChange }
                   />
                 </label>
-                <label htmlFor="email">
+                <label htmlFor="email" className="inputPai-admin">
                   Email
                   <input
                     id="email"
@@ -98,7 +98,7 @@ class Admin extends React.Component {
                     onChange={ this.handleChange }
                   />
                 </label>
-                <label htmlFor="password">
+                <label htmlFor="password" className="inputPai-admin">
                   Senha
                   <input
                     id="password"
@@ -110,7 +110,7 @@ class Admin extends React.Component {
                     onChange={ this.handleChange }
                   />
                 </label>
-                <label htmlFor="role">
+                <label htmlFor="role" className="inputPai-admin">
                   Tipo:
                   <select
                     name="role"
@@ -119,7 +119,6 @@ class Admin extends React.Component {
                     value={ role }
                     onChange={ this.handleChange }
                   >
-                    {/* <option>DEFAULT</option> */}
                     <option value="customer">Comprador</option>
                     <option value="seller">Vendedor</option>
                     <option value="administrator">admin</option>
@@ -144,7 +143,6 @@ class Admin extends React.Component {
 }
 
 Admin.propTypes = {
-  // dispatch: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
