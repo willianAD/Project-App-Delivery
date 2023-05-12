@@ -1,13 +1,20 @@
 const jwt = require('jsonwebtoken');
+const fs = require('fs').promises;
+const path = require('path');
 
-const secret = process.env.JWT_SECRET || 'secret';
+const caminhoArquivo = path.resolve(__dirname, '..', '..', '..', 'jwt.evaluation.key');
 
- const generateToken = (payload) => jwt.sign({ payload }, secret, {
+const data = async () => { 
+  const result = await fs.readFile(caminhoArquivo, 'utf8');
+  return result;
+};
+
+ const generateToken = async (payload) => jwt.sign({ payload }, await data(), {
   algorithm: 'HS256',
   expiresIn: '7d',
 });
 
- const verifyToken = (token) => jwt.verify(token, secret);
+ const verifyToken = async (token) => jwt.verify(token, await data());
 
  module.exports = {
   generateToken,
