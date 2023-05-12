@@ -9,7 +9,7 @@ saleRoutes.get('/orders', sale.getAll);
 
 saleRoutes.post('/orders', sale.create);
 
-saleRoutes.get('/:id', sale.getDetailsById);
+saleRoutes.get('/details', sale.getDetailsById);
 
 module.exports = {
   saleRoutes,

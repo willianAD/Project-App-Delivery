@@ -1,8 +1,10 @@
+const { verifyToken } = require('../auth/authToken');
 const { saleService } = require('../services');
 
 const getDetailsById = async (req, res) => {
-  const { id } = req.params;
-  const salesDetails = await saleService.getDetailsById(id);
+  const token = req.header('Authorization');
+  const { payload: { email }} = verifyToken(token);
+  const salesDetails = await saleService.getDetailsById(email);
   return res.status(200).json(salesDetails);
 };
 

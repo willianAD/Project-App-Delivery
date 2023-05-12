@@ -1,11 +1,15 @@
-const { Sale, Product } = require('../models');
+const { Sale, Product, User } = require('../models');
 
-const getDetailsById = (saleId) => Sale.findAll({
-  where: { id: saleId },
-  include: [
-    { model: Product, as: 'products' },
-  ],
-});
+const getDetailsById = async (email) => {
+  const { dataValues: { id } } = await User.findOne({ where: { email } });
+  const details = await Sale.findAll({
+    where: { sellerId: id },
+    include: [
+      { model: Product, as: 'products' },
+    ],
+  });
+  return details;
+};
 
 const getAll = () => Sale.findAll();
 
