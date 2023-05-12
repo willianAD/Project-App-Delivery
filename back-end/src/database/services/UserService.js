@@ -1,14 +1,14 @@
+const { Op } = require('sequelize');
 const { User } = require('../models');
-const { Op } = require("sequelize");
 
 const findOneLogin = async (email, name = '') => {
   const result = await User.findOne({
     where: {
       [Op.or]: [
         { email },
-        { name }
-      ]
-    }
+        { name },
+      ],
+    },
   });
   return result;
 };

@@ -1,5 +1,5 @@
-const { userService } = require('../services');
 const md5 = require('md5');
+const { userService } = require('../services');
 const { generateToken } = require('../auth/authToken');
 
 const login = async (req, res) => {
@@ -29,11 +29,17 @@ const getUser = async (req, res) => {
 };
 
 const create = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, role } = req.body;
 
   const passwordHash = md5(password);
 
-  await userService.create({ name, email, password: passwordHash, role: 'customer' });
+  if (!role) {
+    await userService.create({ name, email, password: passwordHash, role: 'customer' });
+    const token = generateToken({ name, email });
+    return res.status(201).json({ token });
+  } 
+
+  await userService.create({ name, email, password: passwordHash, role });
 
   const token = generateToken({ name, email });
 
