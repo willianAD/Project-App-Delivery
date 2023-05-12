@@ -84,10 +84,18 @@ class Checkout extends React.Component {
             </tr>
             {shoppingCart.map((item, index) => (
               <tr key={ `${item.name}-${index}` }>
-                <td>
-                  { index }
+                <td
+                  data-testid={
+                    `customer_checkout__element-order-table-item-number-${index}`
+                  }
+                >
+                  { index + 1 }
                 </td>
-                <td>
+                <td
+                  data-testid={
+                    `customer_checkout__element-order-table-name-${index}`
+                  }
+                >
                   { item.index }
                 </td>
                 <td>

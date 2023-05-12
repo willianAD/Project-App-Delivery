@@ -81,6 +81,28 @@ class Products extends React.Component {
     }
   };
 
+  handleChange = ({ target }, price) => {
+    const { shoppingCart, shoppingCartValue } = this.state;
+    const product = shoppingCart.find((a) => (
+      a.name === target.name
+    ));
+    if (product) {
+      product.quantity = Number(target.value);
+      this.setState({
+        shoppingCart,
+        shoppingCartValue: shoppingCartValue + (target.value * price),
+      });
+    } else {
+      this.setState({
+        shoppingCart: [...shoppingCart, { name: target.name, quantity: target.value, price }],
+        shoppingCartValue: shoppingCartValue + Number(price * target.value),
+      });
+    }
+  };
+
+  // shoppingCart.find((a) => a.name === product.name) === undefined
+  // ? 0 : shoppingCart.find((a) => a.name === product.name).quantity
+
   render() {
     const { products, shoppingCartValue, shoppingCart } = this.state;
     const { history } = this.props;
@@ -116,12 +138,13 @@ class Products extends React.Component {
                 -
               </button>
               <input
-                type="number"
+                // type="number"
                 data-testid={ `customer_products__input-card-quantity-${index + 1}` }
                 value={ shoppingCart.find((a) => a.name === product.name) === undefined
                   ? 0 : shoppingCart.find((a) => a.name === product.name).quantity }
                 placeholder="0"
-                readOnly
+                name={ product.name }
+                onChange={ (e) => this.handleChange(e, product.price) }
               />
               <button
                 type="button"
