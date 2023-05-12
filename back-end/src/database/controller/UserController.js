@@ -11,7 +11,8 @@ const login = async (req, res) => {
 
   if (!decryptPassword) return res.status(404).json({ message: 'Not found' });
 
-  const token = generateToken({ name, email });
+  const token = await generateToken({ name, email });
+  console.log(token);
   return res.status(200).json({ token });
 };
 
@@ -35,15 +36,22 @@ const create = async (req, res) => {
 
   if (!role) {
     await userService.create({ name, email, password: passwordHash, role: 'customer' });
-    const token = generateToken({ name, email });
+    const token = await generateToken({ name, email });
     return res.status(201).json({ token });
   } 
 
   await userService.create({ name, email, password: passwordHash, role });
 
-  const token = generateToken({ name, email });
+  const token = await generateToken({ name, email });
 
   return res.status(201).json({ token });
+};
+
+const deleteUser = async (req, res) => {
+  const { id } = req.params;
+  const allUsers = await userService.deleteId(id);
+
+  return res.status(200).json(allUsers);
 };
 
 module.exports = {
@@ -51,4 +59,5 @@ module.exports = {
   login,
   getUser,
   create,
+  deleteUser,
 };

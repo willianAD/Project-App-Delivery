@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { requestPost, setToken } from '../services/request';
 import AdminList from '../components/AdminList';
+import PageNotFound from '../components/PageNotFound';
 
 class Admin extends React.Component {
   constructor() {
@@ -19,10 +20,10 @@ class Admin extends React.Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const { token, role } = JSON.parse(localStorage.getItem('user'));
     this.setState({ roleAtual: role });
-    await setToken(token);
+    setToken(token);
   }
 
   handleChange = ({ target }) => {
@@ -135,7 +136,7 @@ class Admin extends React.Component {
                 <AdminList />
               </div>
             )
-            : null
+            : <PageNotFound />
         }
       </div>
     );

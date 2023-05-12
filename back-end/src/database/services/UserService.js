@@ -29,6 +29,8 @@ const create = (user) => User.create(user);
 
 const getById = (id) => User.findByPk(id);
 
+const deleteId = (id) => User.destroy({ where: { id } });
+
 module.exports = {
   getAll,
   create,
@@ -36,4 +38,5 @@ module.exports = {
   findOneRole,
   findOneLogin,
   findOneEmail,
+  deleteId,
 };

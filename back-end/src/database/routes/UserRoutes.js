@@ -16,6 +16,8 @@ userRoutes.post('/', validateRegister, user.create);
 
 userRoutes.post('/admin', validateToken, validateRegister, user.create);
 
+userRoutes.delete('/:id', validateToken, user.deleteUser);
+
 module.exports = {
   userRoutes,
 };
