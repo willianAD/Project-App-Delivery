@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ProductsTable from '../components/SaleDetails/ProductsTable';
-import { requestGet } from '../services/request';
+import { requestGet, setToken } from '../services/request';
 import totalCalculate from '../utils/TotalCalulate';
 
 const dti = 'seller_order_details__element-order-details-label-delivery-status';
@@ -20,7 +20,9 @@ class SaleDetails extends React.Component {
   }
 
   async componentDidMount() {
-    const response = await requestGet('/seller/orders/details/1');
+    const { token } = JSON.parse(localStorage.getItem('user'));
+    setToken(token);
+    const response = await requestGet('/seller/orders/details');
     this.setState({
       orderId: response[0].id,
       date: response[0].saleDate,
