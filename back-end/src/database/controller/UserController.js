@@ -3,16 +3,16 @@ const { userService } = require('../services');
 const { generateToken } = require('../auth/authToken');
 
 const login = async (req, res) => {
-    const { name, email, password } = req.body;
+  const { name, email, password } = req.body;
 
-    const user = await userService.findOneLogin(email);
-    
-    const decryptPassword = md5.compareSync(password, user.password);
+  const user = await userService.findOneLogin(email);
 
-    if (!decryptPassword) return res.status(400).json({ message: 'Invalid password.' });
- 
-    const token = generateToken({ name, email });
-    return res.status(200).json({ token });
+  const decryptPassword = md5(password) === user.password;
+
+  if (!decryptPassword) return res.status(404).json({ message: 'Not found' });
+
+  const token = generateToken({ name, email });
+  return res.status(200).json({ token });
 };
 
 const getAll = async (_req, res) => {
@@ -21,22 +21,28 @@ const getAll = async (_req, res) => {
   return res.status(200).json(allUsers);
 };
 
+const getUser = async (req, res) => {
+  const { email } = req.body;
+  const user = await userService.findOneEmail(email);
+
+  return res.status(200).json(user);
+};
+
 const create = async (req, res) => {
   const { name, email, password } = req.body;
 
-  const salt = md5.genSaltSync(5);
-
-  const passwordHash = md5.hashSync(password, salt);
+  const passwordHash = md5(password);
 
   await userService.create({ name, email, password: passwordHash, role: 'customer' });
 
   const token = generateToken({ name, email });
 
-  return res.status(200).json({ token });
+  return res.status(201).json({ token });
 };
 
 module.exports = {
   getAll,
   login,
+  getUser,
   create,
 };

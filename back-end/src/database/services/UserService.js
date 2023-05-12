@@ -1,25 +1,29 @@
+const { Op } = require('sequelize');
 const { User } = require('../models');
 
-const { Op } = require("sequelize");
-
 const findOneLogin = async (email, name = '') => {
-    const result = await User.findOne({
-      where: {
-        [Op.or]: [
-          { email },
-          { name }
-        ]
-      }
-    });
-    return result;
+  const result = await User.findOne({
+    where: {
+      [Op.or]: [
+        { email },
+        { name },
+      ],
+    },
+  });
+  return result;
+};
+
+const findOneEmail = async (email) => {
+  const result = await User.findOne({ where: { email } });
+  return result;
 };
 
 const findOneRole = async (role) => {
-    const result = await User.findOne({ where: { role } });
-    return result;
-  };
+  const result = await User.findOne({ where: { role } });
+  return result;
+};
 
-const getAll = () => User.findAll();
+const getAll = () => User.findAll({ attributes: { exclude: ['password', 'email'] } });
 
 const create = (user) => User.create(user);
 
@@ -31,4 +35,5 @@ module.exports = {
   getById,
   findOneRole,
   findOneLogin,
+  findOneEmail,
 };

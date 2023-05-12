@@ -1,6 +1,7 @@
 import React from 'react';
-import NavBar from '../components/NavBar';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import NavBar from '../components/NavBar';
 import { requestGet } from '../services/request';
 
 class Products extends React.Component {
@@ -9,27 +10,27 @@ class Products extends React.Component {
     this.state = {
       products: [],
       shoppingCart: [],
-      shoppingCartValue: 0.00
+      shoppingCartValue: 0.00,
     };
   }
 
   componentDidMount() {
     this.getProducts();
     this.getShoppingCart();
-  };
+  }
 
   componentDidUpdate(_prevProps, prevState) {
-    const {shoppingCartValue, shoppingCart} = this.state;
+    const { shoppingCartValue, shoppingCart } = this.state;
     if (prevState.shoppingCartValue !== shoppingCartValue) {
       localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
-      localStorage.setItem('shoppingCartValue', JSON.stringify(shoppingCartValue))
+      localStorage.setItem('shoppingCartValue', JSON.stringify(shoppingCartValue));
     }
   }
 
   getProducts = async () => {
     const products = await requestGet('product');
     this.setState({
-      products: products,
+      products,
     });
   };
 
@@ -38,25 +39,24 @@ class Products extends React.Component {
     const shoppingCartValue = localStorage.getItem('shoppingCartValue');
     if (shoppingCart === null) {
       localStorage.setItem('shoppingCart', JSON.stringify([]));
-      localStorage.setItem('shoppingCartValue', JSON.stringify(0))
+      localStorage.setItem('shoppingCartValue', JSON.stringify(0));
     } else {
       this.setState({
         shoppingCart: JSON.parse(shoppingCart),
-        shoppingCartValue: JSON.parse(shoppingCartValue)
+        shoppingCartValue: JSON.parse(shoppingCartValue),
       });
     }
   };
 
   subCart = (item, itemPrice) => {
     const { shoppingCart, shoppingCartValue } = this.state;
-    const product = shoppingCart.find((a, i) => {
-      if(a.name === item) return i;
-    })
+    const product = shoppingCart.find((a) => (
+      a.name === item
+    ));
     if (product && product.quantity > 0) {
-      console.log('helo')
-      product.quantity -= 1; 
+      product.quantity -= 1;
       this.setState({
-        shoppingCart, 
+        shoppingCart,
         shoppingCartValue: shoppingCartValue - Number(itemPrice),
       });
     }
@@ -64,18 +64,18 @@ class Products extends React.Component {
 
   addCart = (item, itemPrice) => {
     const { shoppingCart, shoppingCartValue } = this.state;
-    const product = shoppingCart.find((a, i) => {
-      if(a.name === item) return i;
-    })
+    const product = shoppingCart.find((a) => (
+      a.name === item
+    ));
     if (product) {
-      product.quantity += 1; 
+      product.quantity += 1;
       this.setState({
         shoppingCart,
         shoppingCartValue: shoppingCartValue + Number(itemPrice),
       });
     } else {
       this.setState({
-        shoppingCart: [...shoppingCart, {name: item, quantity: 1, price: itemPrice }],
+        shoppingCart: [...shoppingCart, { name: item, quantity: 1, price: itemPrice }],
         shoppingCartValue: shoppingCartValue + Number(itemPrice),
       });
     }
@@ -83,66 +83,79 @@ class Products extends React.Component {
 
   render() {
     const { products, shoppingCartValue, shoppingCart } = this.state;
+    const { history } = this.props;
     return (
       <>
-      <NavBar />
-      <h1> Products </h1>
-      { products.map((product, index) => (
+        <NavBar />
+        <h1> Products </h1>
+        { products.map((product, index) => (
           <div
-            key={ `customer_products__element-card-price-${index}` }
+            key={ `customer_products__element-card-price-${index + 1}` }
           >
             <img
-              alt={product.name}
+              alt={ product.name }
               src={ product.urlImage }
-              data-testid={ `customer_products__img-card-bg-image-${index}` }
+              data-testid={ `customer_products__img-card-bg-image-${index + 1}` }
             />
             <p
-              data-testid={ `customer_products__element-card-price-${index}` }
+              data-testid={ `customer_products__element-card-price-${index + 1}` }
             >
-              { product.price }
+              { String(product.price).replace('.', ',') }
             </p>
             <p
-              data-testid={ `customer_products__element-card-title-${index}` }
+              data-testid={ `customer_products__element-card-title-${index + 1}` }
             >
               { product.name }
             </p>
             <div>
               <button
                 type="button"
-                data-testid={ `customer_products__button-card-rm-item-${index}` }
+                data-testid={ `customer_products__button-card-rm-item-${index + 1}` }
                 onClick={ () => this.subCart(product.name, product.price) }
               >
                 -
               </button>
-              <p
-                data-testid={ `customer_products__input-card-quantity-${index}` }>
-                  {shoppingCart.find((a) => a.name === product.name) === undefined ? 0 : shoppingCart.find((a) => a.name === product.name).quantity}
-              </p>
+              <input
+                type="number"
+                data-testid={ `customer_products__input-card-quantity-${index + 1}` }
+                value={ shoppingCart.find((a) => a.name === product.name) === undefined
+                  ? 0 : shoppingCart.find((a) => a.name === product.name).quantity }
+                placeholder="0"
+                readOnly
+              />
               <button
                 type="button"
-                data-testid={ `customer_products__button-card-add-item-${index}` }
+                data-testid={ `customer_products__button-card-add-item-${index + 1}` }
                 onClick={ () => this.addCart(product.name, product.price) }
               >
                 +
               </button>
             </div>
           </div>
-        ))
-      }
-      <button
-        type="button"
-      >
-        Ver Carrinho: R$
-        {' '}
-        <span
-          data-testid="customer_products__checkout-bottom-value"
+        ))}
+        <button
+          type="button"
+          data-testid="customer_products__button-cart"
+          disabled={ shoppingCartValue === 0 }
+          onClick={ () => history.push('/customer/checkout') }
         >
-          { (shoppingCartValue).toFixed(2).replace(".", ",") }
-        </span>
-      </button>
+          Ver Carrinho: R$
+          {' '}
+          <span
+            data-testid="customer_products__checkout-bottom-value"
+          >
+            { (shoppingCartValue).toFixed(2).replace('.', ',') }
+          </span>
+        </button>
       </>
     );
   }
 }
+
+Products.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+};
 
 export default connect()(Products);
