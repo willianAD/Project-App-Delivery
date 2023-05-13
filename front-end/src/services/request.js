@@ -18,4 +18,12 @@ export const requestPost = async (endpoint, body) => {
   return data;
 };
 
+export const postHeader = async (endpoint, body, token) => {
+  const { data } = await api.post(endpoint, body, { headers: {
+    Authorization: `Bearer  ${token}`,
+  },
+  });
+  return data;
+};
+
 export default api;

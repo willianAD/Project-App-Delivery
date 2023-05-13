@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import NavBar from '../components/NavBar';
-import { requestPost, requestGet } from '../services/request';
+import { postHeader, requestGet } from '../services/request';
 
 class Checkout extends React.Component {
   constructor() {
@@ -11,7 +11,12 @@ class Checkout extends React.Component {
       shoppingCart: [],
       shoppingCartValue: 0.00,
       sellers: [],
-      details: { seller: 'Fulana Pereira', address: '', addressNumber: 0 },
+      details: {
+        userId: 0,
+        sellerId: 2,
+        address: '',
+        addressNumber: 0,
+      },
     };
   }
 
@@ -21,12 +26,18 @@ class Checkout extends React.Component {
   }
 
   getUsers = async () => {
+    const thisUser = localStorage.getItem('user');
+    const { details } = this.state;
     const users = await requestGet('/user');
-    const sellers = users.filter((a) => (
-      a.role === 'seller'
+
+    const userId = users.find((a) => (
+      a.name === JSON.parse(thisUser).name
     ));
+    // console.log(userId)
+
     this.setState({
-      sellers,
+      sellers: users,
+      details: { ...details, userId: userId.id },
     });
   };
 
@@ -46,16 +57,18 @@ class Checkout extends React.Component {
 
   finish = async () => {
     const { history } = this.props;
-    const { shoppingCartValue, details, sellers } = this.state;
+    const thisUser = JSON.parse(localStorage.getItem('user'));
+    const { shoppingCartValue, details } = this.state;
+
     const body = {
-      userId: 1,
-      sellerId: details.seller.id,
+      userId: details.userId,
+      sellerId: details.sellerId,
       totalPrice: shoppingCartValue,
-      deliveryAddress: sellers.find((s) => s.name === details.seller).id,
+      deliveryAddress: details.address,
       deliveryNumber: details.addressNumber,
       status: 'Pendente',
     };
-    const response = await requestPost('/seller/orders', body);
+    const response = await postHeader('/seller/orders', body, thisUser.token);
     history.push(`/customer/orders/${response.id}`);
   };
 
@@ -74,49 +87,67 @@ class Checkout extends React.Component {
         <h1> Finalizar Pedido </h1>
         <div>
           <table>
-            <tr>
-              <th>Item</th>
-              <th>Descrição</th>
-              <th>Quantidade</th>
-              <th>Valor Unitário</th>
-              <th>Sub-total</th>
-              <th>Remover Item</th>
-            </tr>
-            {shoppingCart.map((item, index) => (
-              <tr key={ `${item.name}-${index}` }>
-                <td
-                  data-testid={
-                    `customer_checkout__element-order-table-item-number-${index}`
-                  }
-                >
-                  { index + 1 }
-                </td>
-                <td
-                  data-testid={
-                    `customer_checkout__element-order-table-name-${index}`
-                  }
-                >
-                  { item.index }
-                </td>
-                <td>
-                  { item.name }
-                </td>
-                <td>
-                  { item.quantity }
-                </td>
-                <td>
-                  { item.price }
-                </td>
-                <td>
-                  { (Number(item.price) * item.quantity).toFixed(2) }
-                </td>
-                <td>
-                  <button type="button">
-                    Remover Item
-                  </button>
-                </td>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Descrição</th>
+                <th>Quantidade</th>
+                <th>Valor Unitário</th>
+                <th>Sub-total</th>
+                <th>Remover Item</th>
               </tr>
-            ))}
+            </thead>
+            <tbody>
+              {shoppingCart.map((item, index) => (
+                <tr key={ `${item.name}-${index}` }>
+                  <td
+                    data-testid={
+                      `customer_checkout__element-order-table-item-number-${index}`
+                    }
+                  >
+                    { index + 1 }
+                  </td>
+                  <td
+                    data-testid={
+                      `customer_checkout__element-order-table-name-${index}`
+                    }
+                  >
+                    { item.name }
+                  </td>
+                  <td
+                    data-testid={
+                      `customer_checkout__element-order-table-quantity-${index}`
+                    }
+                  >
+                    { item.quantity }
+                  </td>
+                  <td
+                    data-testid={
+                      `customer_checkout__element-order-table-unit-price-${index}`
+                    }
+                  >
+                    { String(item.price).replace('.', ',') }
+                  </td>
+                  <td
+                    data-testid={
+                      `customer_checkout__element-order-table-sub-total-${index}`
+                    }
+                  >
+                    { (Number(item.price) * item.quantity).toFixed(2).replace('.', ',') }
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      data-testid={
+                        `customer_checkout__element-order-table-remove-${index}`
+                      }
+                    >
+                      Remover Item
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
           <p>
             Total: R$
@@ -136,13 +167,13 @@ class Checkout extends React.Component {
                 id="seller"
                 name="seller"
                 data-testid="customer_checkout__select-seller"
-                value={ details.seller }
-                onClick={ (e) => this.handleChange('seller', e.target.value) }
+                value={ details.sellerId }
+                onChange={ (e) => this.handleChange('seller', e.target.value) }
               >
                 {sellers.map((user) => (
                   <option
                     key={ user.name }
-                    value={ user.name }
+                    value={ user.id }
                   >
                     { user.name }
                   </option>))}
@@ -156,6 +187,7 @@ class Checkout extends React.Component {
                 type="text"
                 value={ details.address }
                 onChange={ (e) => this.handleChange('address', e.target.value) }
+                data-testid="customer_checkout__input-address"
               />
             </label>
             <label
@@ -168,6 +200,7 @@ class Checkout extends React.Component {
                 type="number"
                 value={ details.addressNumber }
                 onChange={ (e) => this.handleChange('addressNumber', e.target.value) }
+                data-testid="customer_checkout__input-address-number"
               />
             </label>
           </div>

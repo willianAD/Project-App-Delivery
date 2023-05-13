@@ -94,14 +94,12 @@ class Products extends React.Component {
       });
     } else {
       this.setState({
-        shoppingCart: [...shoppingCart, { name: target.name, quantity: target.value, price }],
+        shoppingCart: [...shoppingCart,
+          { name: target.name, quantity: target.value, price }],
         shoppingCartValue: shoppingCartValue + Number(price * target.value),
       });
     }
   };
-
-  // shoppingCart.find((a) => a.name === product.name) === undefined
-  // ? 0 : shoppingCart.find((a) => a.name === product.name).quantity
 
   render() {
     const { products, shoppingCartValue, shoppingCart } = this.state;
@@ -138,7 +136,6 @@ class Products extends React.Component {
                 -
               </button>
               <input
-                // type="number"
                 data-testid={ `customer_products__input-card-quantity-${index + 1}` }
                 value={ shoppingCart.find((a) => a.name === product.name) === undefined
                   ? 0 : shoppingCart.find((a) => a.name === product.name).quantity }

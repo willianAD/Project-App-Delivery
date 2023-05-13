@@ -23,11 +23,13 @@ const findOneRole = async (role) => {
   return result;
 };
 
-const getAll = () => User.findAll({ attributes: { exclude: ['password', 'email'] } });
+const getAll = () => User.findAll();
 
 const create = (user) => User.create(user);
 
 const getById = (id) => User.findByPk(id);
+
+const deleteId = (id) => User.destroy({ where: { id } });
 
 module.exports = {
   getAll,
@@ -36,4 +38,5 @@ module.exports = {
   findOneRole,
   findOneLogin,
   findOneEmail,
+  deleteId,
 };
