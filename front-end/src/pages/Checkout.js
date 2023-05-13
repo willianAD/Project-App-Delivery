@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import NavBar from '../components/NavBar';
-import { postHeader, requestGet } from '../services/request';
+import { postHeader, requestGet, requestPost } from '../services/request';
 
 class Checkout extends React.Component {
   constructor() {
@@ -15,7 +15,7 @@ class Checkout extends React.Component {
         userId: 0,
         sellerId: 2,
         address: '',
-        addressNumber: 0,
+        addressNumber: '',
       },
     };
   }
@@ -57,7 +57,7 @@ class Checkout extends React.Component {
   finish = async () => {
     const { history } = this.props;
     const thisUser = JSON.parse(localStorage.getItem('user'));
-    const { shoppingCartValue, details } = this.state;
+    const { shoppingCartValue, details, shoppingCart } = this.state;
 
     const body = {
       userId: details.userId,
@@ -68,6 +68,15 @@ class Checkout extends React.Component {
       status: 'Pendente',
     };
     const response = await postHeader('/seller/orders', body, thisUser.token);
+    const products = shoppingCart.map((p) => p);
+
+    const secondBody = {
+      id: response.id,
+      products,
+    };
+    console.log(secondBody);
+    await requestPost('/sale', secondBody);
+
     history.push(`/customer/orders/${response.id}`);
   };
 
@@ -195,6 +204,7 @@ class Checkout extends React.Component {
                 id="address-number"
                 name="address-number"
                 type="number"
+                placeholder="0"
                 value={ details.addressNumber }
                 onChange={ (e) => this.handleChange('addressNumber', e.target.value) }
                 data-testid="customer_checkout__input-address-number"

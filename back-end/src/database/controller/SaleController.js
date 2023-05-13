@@ -22,12 +22,7 @@ const getAllById = async (req, res) => {
 const create = async (req, res) => {
   const sale = req.body;
 
-  const date = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
-  const splitedDate = date.split(/\D/);
-  const isoDate = `${splitedDate[2]}-${splitedDate[1]}-
-  ${splitedDate[0]} ${splitedDate[3]}:${splitedDate[4]}:${splitedDate[5]}`;
-
-  const saleCreated = await saleService.create(sale, isoDate);
+  const saleCreated = await saleService.create(sale);
 
   return res.status(201).json(saleCreated);
 };

@@ -62,7 +62,7 @@ class Products extends React.Component {
     }
   };
 
-  addCart = (item, itemPrice) => {
+  addCart = (item, itemPrice, itemId) => {
     const { shoppingCart, shoppingCartValue } = this.state;
     const product = shoppingCart.find((a) => (
       a.name === item
@@ -75,7 +75,8 @@ class Products extends React.Component {
       });
     } else {
       this.setState({
-        shoppingCart: [...shoppingCart, { name: item, quantity: 1, price: itemPrice }],
+        shoppingCart: [...shoppingCart,
+          { name: item, quantity: 1, price: itemPrice, id: itemId }],
         shoppingCartValue: shoppingCartValue + Number(itemPrice),
       });
     }
@@ -141,12 +142,12 @@ class Products extends React.Component {
                   ? 0 : shoppingCart.find((a) => a.name === product.name).quantity }
                 placeholder="0"
                 name={ product.name }
-                onChange={ (e) => this.handleChange(e, product.price) }
+                onChange={ (e) => this.handleChange(e, product.price, product.id) }
               />
               <button
                 type="button"
                 data-testid={ `customer_products__button-card-add-item-${index + 1}` }
-                onClick={ () => this.addCart(product.name, product.price) }
+                onClick={ () => this.addCart(product.name, product.price, product.id) }
               >
                 +
               </button>
