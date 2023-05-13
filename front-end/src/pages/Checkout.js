@@ -33,7 +33,6 @@ class Checkout extends React.Component {
     const userId = users.find((a) => (
       a.name === JSON.parse(thisUser).name
     ));
-    // console.log(userId)
 
     this.setState({
       sellers: users,
@@ -85,80 +84,78 @@ class Checkout extends React.Component {
       <>
         <NavBar />
         <h1> Finalizar Pedido </h1>
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Descrição</th>
-                <th>Quantidade</th>
-                <th>Valor Unitário</th>
-                <th>Sub-total</th>
-                <th>Remover Item</th>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Descrição</th>
+              <th>Quantidade</th>
+              <th>Valor Unitário</th>
+              <th>Sub-total</th>
+              <th>Remover Item</th>
+            </tr>
+          </thead>
+          <tbody>
+            {shoppingCart.map((item, index) => (
+              <tr key={ `${item.name}-${index}` }>
+                <td
+                  data-testid={
+                    `customer_checkout__element-order-table-item-number-${index}`
+                  }
+                >
+                  { index + 1 }
+                </td>
+                <td
+                  data-testid={
+                    `customer_checkout__element-order-table-name-${index}`
+                  }
+                >
+                  { item.name }
+                </td>
+                <td
+                  data-testid={
+                    `customer_checkout__element-order-table-quantity-${index}`
+                  }
+                >
+                  { item.quantity }
+                </td>
+                <td
+                  data-testid={
+                    `customer_checkout__element-order-table-unit-price-${index}`
+                  }
+                >
+                  { String(item.price).replace('.', ',') }
+                </td>
+                <td
+                  data-testid={
+                    `customer_checkout__element-order-table-sub-total-${index}`
+                  }
+                >
+                  { (Number(item.price) * item.quantity).toFixed(2).replace('.', ',') }
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    data-testid={
+                      `customer_checkout__element-order-table-remove-${index}`
+                    }
+                  >
+                    Remover Item
+                  </button>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {shoppingCart.map((item, index) => (
-                <tr key={ `${item.name}-${index}` }>
-                  <td
-                    data-testid={
-                      `customer_checkout__element-order-table-item-number-${index}`
-                    }
-                  >
-                    { index + 1 }
-                  </td>
-                  <td
-                    data-testid={
-                      `customer_checkout__element-order-table-name-${index}`
-                    }
-                  >
-                    { item.name }
-                  </td>
-                  <td
-                    data-testid={
-                      `customer_checkout__element-order-table-quantity-${index}`
-                    }
-                  >
-                    { item.quantity }
-                  </td>
-                  <td
-                    data-testid={
-                      `customer_checkout__element-order-table-unit-price-${index}`
-                    }
-                  >
-                    { String(item.price).replace('.', ',') }
-                  </td>
-                  <td
-                    data-testid={
-                      `customer_checkout__element-order-table-sub-total-${index}`
-                    }
-                  >
-                    { (Number(item.price) * item.quantity).toFixed(2).replace('.', ',') }
-                  </td>
-                  <td>
-                    <button
-                      type="button"
-                      data-testid={
-                        `customer_checkout__element-order-table-remove-${index}`
-                      }
-                    >
-                      Remover Item
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p>
-            Total: R$
-            {' '}
-            <span
-              data-testid="customer_checkout__element-order-total-price"
-            >
-              {(shoppingCartValue).toFixed(2).replace('.', ',')}
-            </span>
-          </p>
-        </div>
+            ))}
+          </tbody>
+        </table>
+        <p>
+          Total: R$
+          {' '}
+          <span
+            data-testid="customer_checkout__element-order-total-price"
+          >
+            {(shoppingCartValue).toFixed(2).replace('.', ',')}
+          </span>
+        </p>
         <form>
           <h2> Detalhes e Endereço para Entrega </h2>
           <div>
