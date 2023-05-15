@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Navbar from '../components/SellerOrders/Navbar';
 import OrderCard from '../components/SellerOrders/OrderCard';
 import { requestGet } from '../services/request';
@@ -6,8 +9,8 @@ import { requestGet } from '../services/request';
 class SellerOrders extends Component {
   constructor() {
     super();
-    // ESSE ESTADO É SÓ UM EXEMPLO, O VERDADEIRO ESTADO
-    // PRECISA VIR DAS INFORMAÇÕES DO BANCO DE DADOS
+    this.handleClickOrder = this.handleClickOrder.bind(this);
+
     this.state = {
       ordersArray: [],
     };
@@ -15,11 +18,17 @@ class SellerOrders extends Component {
 
   async componentDidMount() {
     const response = await requestGet('seller/orders');
-    console.log(response);
+    console.log('SellerOrders', response);
 
     this.setState({
       ordersArray: response,
     });
+  }
+
+  handleClickOrder(orderId) {
+    console.log(orderId);
+    const { history } = this.props;
+    history.push(`/seller/orders/${orderId}`);
   }
 
   render() {
@@ -36,20 +45,32 @@ class SellerOrders extends Component {
             FAZER UM MAP EM TODOS OS PEDIDOS E PARA CADA PEDIDO
             RENDERIZAR O ELEMENTO ABAIXO */}
         { ordersArray.map((order, key) => (
-          <OrderCard
+          <button
+            type="button"
             key={ key }
-            orderNum={ order.id }
-            status={ order.status }
-            saleDate={ order.saleDate }
-            totalPrice={ order.totalPrice }
-            deliveryAddress={ order.deliveryAddress }
-          />
+            onClick={ () => {
+              this.handleClickOrder(order.id);
+            } }
+          >
+            <OrderCard
+              key={ key }
+              orderNum={ order.id }
+              status={ order.status }
+              saleDate={ order.saleDate }
+              totalPrice={ order.totalPrice }
+              deliveryAddress={ order.deliveryAddress }
+            />
+          </button>
         )) }
 
       </main>
     );
   }
 }
-SellerOrders.propTypes = {}.isRequired;
+SellerOrders.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+};
 
-export default SellerOrders;
+export default withRouter(connect()(SellerOrders));
