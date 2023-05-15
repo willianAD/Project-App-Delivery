@@ -11,19 +11,11 @@ class CheckoutTable extends React.Component {
     const productRemove = shoppingCart.find((product) => product.name === productName);
     const withouTheProduct = shoppingCart
       .filter((product) => product.name !== productName);
-    const newValue = shoppingCartValue - productRemove.price;
+    const newValue = shoppingCartValue - (productRemove.price * productRemove.quantity);
 
-    if (productRemove.quantity > 1) {
-      productRemove.quantity -= 1;
-      handleComponent([
-        { name: 'shoppingCart', value: shoppingCart },
-        { name: 'shoppingCartValue', value: newValue },
-      ]);
-    } else {
-      handleComponent([{ name: 'shoppingCart', value: withouTheProduct },
-        { name: 'shoppingCartValue', value: newValue },
-      ]);
-    }
+    handleComponent([{ name: 'shoppingCart', value: withouTheProduct },
+      { name: 'shoppingCartValue', value: newValue },
+    ]);
     setLocalStorage([{ name: 'shoppingCart', value: withouTheProduct },
       { name: 'shoppingCartValue', value: newValue }]);
   };
