@@ -8,6 +8,7 @@ import Products from './pages/Products';
 import Checkout from './pages/Checkout';
 import Orders from './pages/Orders';
 import SellerOrders from './pages/SellerOrders';
+import OrderDetails from './pages/OrderDetails';
 
 function App() {
   return (
