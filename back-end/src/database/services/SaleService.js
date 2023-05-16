@@ -18,7 +18,7 @@ const create = (sale) => Sale.create(
     totalPrice: sale.totalPrice,
     deliveryAddress: sale.deliveryAddress,
     deliveryNumber: sale.deliveryNumber,
-    saleDate: (new Date().toLocaleString('pt-BR')).toString(),
+    saleDate: (new Date()),
     status: sale.status,
   },
 );
