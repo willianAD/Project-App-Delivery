@@ -1,0 +1,829 @@
+@media ( min-width : 320px ) and ( max-width : 479px ) {
+
+  body {
+    background: linear-gradient(30deg, var(--primeira), rgb(10, 82, 82));
+    background-size: 400%;
+    height: 100vh;
+  }
+
+  .form-login input:focus, select:focus {
+    border: 2px solid var(--segunda);
+    box-shadow: 0 0 0 0;
+    outline: 0;
+  }
+
+  .form-login input:-webkit-autofill {
+    box-shadow: 0 0 0 30px #064242 inset;
+    -webkit-text-fill-color: white;
+  }
+
+  .form-login {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .paiImg-login {
+    width: 90%;
+  }
+
+  .img-login {
+    width: 100%;
+  }
+
+  .avoInputsButtonsMessageError-login {
+    align-items: center;
+    animation: animation-login1 ease-out 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @keyframes animation-login1 {
+
+    0% {
+      transform: translateY(-100px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .paiInputs-login, .paiButtons-login, .paiMessageError-login {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .inputPassword-login, .inputEmail-login {
+    background-color: transparent;
+    border: 2px solid var(--segunda);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px rgb(51, 51, 51);
+    color: white;
+    font-weight: 900;
+    height: 35px;
+    margin: 5px 0;
+    padding: 12px 10px 12px 50px;
+    width: 60vw;
+  }
+
+  .inputPassword-login::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputEmail-login::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .paiButtons-login {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 50px 0;
+  }
+
+  .buttonLogin-login {
+    background: linear-gradient(to top, var(--segunda), #c39625);
+    background-color: var(--segunda);
+    border: 0 solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    margin: 5px 0;
+    padding: 14px 15px;
+    text-decoration: none;
+    width: 75vw;
+  }
+
+  .buttonLogin-login:disabled {
+    filter: opacity(0.4);
+  }
+
+  .buttonRegister-login {
+    background: linear-gradient(to bottom, rgb(185, 148, 0), rgb(134, 107, 0));
+    background-color: #ece9e9;
+    border: 0 solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    margin: 5px 0;
+    padding: 14px 15px;
+    text-decoration: none;
+    width: 75vw;
+  }
+
+  .iconEmail-login, .iconPassword-login {
+    color: rgb(163, 163, 163);
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 22px;
+    position: absolute;
+  }
+
+  .error-login {
+    align-items: center;
+    animation: animation-error1 ease-out 4.01s;
+    background: linear-gradient(to bottom, #e52c2c, #7d1717);
+    background-color: #e52c2c;
+    border-radius: 12px;
+    box-shadow: 2px 2px 6px 2px rgb(52, 52, 52);
+    display: flex;
+    flex-direction: column;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    margin: 10px 0 20px;
+    padding: 15px 10px 30px;
+    text-align: center;
+    width: 75vw;
+  }
+
+  @keyframes animation-error1 {
+
+    0% {
+      position: absolute;
+      top: 0;
+    }
+
+    20% {
+      position: absolute;
+      top: 40px;
+    }
+
+    90% {
+      position: absolute;
+      top: 40px;
+    }
+
+    100% {
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .iconError-login {
+    font-size: 30px;
+    margin: 10px;
+  }
+
+  .progress-login {
+    animation: animation-progressError ease-out 4s;
+    background-color: black;
+    border-bottom-left-radius: 12px;
+    bottom: 0;
+    height: 10px;
+    left: 0;
+    position: absolute;
+  }
+
+  @keyframes animation-progressError {
+
+    0% {
+      width: 0;
+    }
+
+    90% {
+      border-bottom-right-radius: 12px;
+    }
+
+    100% {
+      border-bottom-right-radius: 12px;
+      width: 100%;
+    }
+  }
+}
+
+@media ( min-width : 480px ) and ( max-width : 600px ) {
+
+  body {
+    background: linear-gradient(30deg, var(--primeira), rgb(10, 82, 82));
+    height: 100vh;
+  }
+
+  .form-login input:focus, select:focus {
+    border: 2px solid var(--segunda);
+    box-shadow: 0 0 0 0;
+    outline: 0;
+  }
+
+  .form-login input:-webkit-autofill {
+    box-shadow: 0 0 0 30px #064242 inset;
+    -webkit-text-fill-color: white;
+  }
+
+  .form-login {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .paiImg-login {
+    width: 70%;
+  }
+
+  .img-login {
+    width: 100%;
+  }
+
+  .avoInputsButtonsMessageError-login {
+    align-items: center;
+    animation: animation-login1 ease-out 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @keyframes animation-login1 {
+
+    0% {
+      transform: translateY(-100px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .paiInputs-login, .paiButtons-login, .paiMessageError-login {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .inputPassword-login, .inputEmail-login {
+    background-color: transparent;
+    border: 2px solid var(--segunda);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px rgb(51, 51, 51);
+    color: white;
+    font-weight: 900;
+    height: 35px;
+    margin: 5px 0;
+    padding: 12px 10px 12px 50px;
+    width: 50vw;
+  }
+
+  .inputPassword-login::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputEmail-login::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .paiButtons-login {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 50px 0;
+  }
+
+  .buttonLogin-login {
+    background: linear-gradient(to top, var(--segunda), #c39625);
+    background-color: var(--segunda);
+    border: 0 solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    margin: 5px 0;
+    padding: 14px 15px;
+    text-decoration: none;
+    width: 60vw;
+  }
+
+  .buttonLogin-login:disabled {
+    filter: opacity(0.4);
+  }
+
+  .buttonRegister-login {
+    background: linear-gradient(to bottom, rgb(185, 148, 0), rgb(134, 107, 0));
+    background-color: #ece9e9;
+    border: 0 solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    margin: 5px 0;
+    padding: 14px 15px;
+    text-decoration: none;
+    width: 60vw;
+  }
+
+  .iconEmail-login, .iconPassword-login {
+    color: rgb(163, 163, 163);
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 22px;
+    position: absolute;
+  }
+
+  .error-login {
+    align-items: center;
+    animation: animation-error1 ease-out 4.01s;
+    background: linear-gradient(to bottom, #e52c2c, #7d1717);
+    background-color: #e52c2c;
+    border-radius: 12px;
+    box-shadow: 2px 2px 6px 2px rgb(52, 52, 52);
+    display: flex;
+    flex-direction: column;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    margin: 10px 0 20px;
+    padding: 15px 10px 30px;
+    text-align: center;
+    width: 75vw;
+  }
+
+  @keyframes animation-error1 {
+
+    0% {
+      position: absolute;
+      top: 0;
+    }
+
+    20% {
+      position: absolute;
+      top: 40px;
+    }
+
+    90% {
+      position: absolute;
+      top: 40px;
+    }
+
+    100% {
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .iconError-login {
+    font-size: 30px;
+    margin: 10px;
+  }
+
+  .progress-login {
+    animation: animation-progressError ease-out 4s;
+    background-color: black;
+    border-bottom-left-radius: 12px;
+    bottom: 0;
+    height: 10px;
+    left: 0;
+    position: absolute;
+  }
+
+  @keyframes animation-progressError {
+
+    0% {
+      width: 0;
+    }
+
+    90% {
+      border-bottom-right-radius: 12px;
+    }
+
+    100% {
+      border-bottom-right-radius: 12px;
+      width: 100%;
+    }
+  }
+}
+
+@media ( min-width : 601px ) and ( max-width : 800px ) {
+
+  body {
+    background: linear-gradient(30deg, var(--primeira), rgb(10, 82, 82));
+    height: 100vh;
+  }
+
+  .form-login input:focus, select:focus {
+    border: 2px solid var(--segunda);
+    box-shadow: 0 0 0 0;
+    outline: 0;
+  }
+
+  .form-login input:-webkit-autofill {
+    box-shadow: 0 0 0 30px #064242 inset;
+    -webkit-text-fill-color: white;
+  }
+
+  .form-login {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .paiImg-login {
+    width: 50%;
+  }
+
+  .img-login {
+    width: 100%;
+  }
+
+  .avoInputsButtonsMessageError-login {
+    align-items: center;
+    animation: animation-login1 ease-out 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @keyframes animation-login1 {
+
+    0% {
+      transform: translateY(-100px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .paiInputs-login, .paiButtons-login, .paiMessageError-login {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .inputPassword-login, .inputEmail-login {
+    background-color: transparent;
+    border: 2px solid var(--segunda);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px rgb(51, 51, 51);
+    color: white;
+    font-weight: 900;
+    height: 35px;
+    margin: 5px 0;
+    padding: 12px 10px 12px 50px;
+    width: 300px;
+  }
+
+  .inputPassword-login::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputEmail-login::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .paiButtons-login {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 50px 0;
+  }
+
+  .buttonLogin-login {
+    background: linear-gradient(to top, var(--segunda), #c39625);
+    background-color: var(--segunda);
+    border: 0 solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    margin: 5px 0;
+    padding: 14px 15px;
+    text-decoration: none;
+    width: 360px;
+  }
+
+  .buttonLogin-login:disabled {
+    filter: opacity(0.4);
+  }
+
+  .buttonRegister-login {
+    background: linear-gradient(to bottom, rgb(185, 148, 0), rgb(134, 107, 0));
+    background-color: #ece9e9;
+    border: 0 solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    margin: 5px 0;
+    padding: 14px 15px;
+    text-decoration: none;
+    width: 360px;
+  }
+
+  .iconEmail-login, .iconPassword-login {
+    color: rgb(163, 163, 163);
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 22px;
+    position: absolute;
+  }
+
+  .error-login {
+    align-items: center;
+    animation: animation-error1 ease-out 4.01s;
+    background: linear-gradient(to bottom, #e52c2c, #7d1717);
+    background-color: #e52c2c;
+    border-radius: 12px;
+    box-shadow: 2px 2px 6px 2px rgb(52, 52, 52);
+    display: flex;
+    flex-direction: column;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    margin: 10px 0 20px;
+    padding: 15px 10px 30px;
+    text-align: center;
+    width: 75vw;
+  }
+
+  @keyframes animation-error1 {
+
+    0% {
+      position: absolute;
+      top: 0;
+    }
+
+    20% {
+      position: absolute;
+      top: 40px;
+    }
+
+    90% {
+      position: absolute;
+      top: 40px;
+    }
+
+    100% {
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .iconError-login {
+    font-size: 30px;
+    margin: 10px;
+  }
+
+  .progress-login {
+    animation: animation-progressError ease-out 4s;
+    background-color: black;
+    border-bottom-left-radius: 12px;
+    bottom: 0;
+    height: 10px;
+    left: 0;
+    position: absolute;
+  }
+
+  @keyframes animation-progressError {
+
+    0% {
+      width: 0;
+    }
+
+    90% {
+      border-bottom-right-radius: 12px;
+    }
+
+    100% {
+      border-bottom-right-radius: 12px;
+      width: 100%;
+    }
+  }
+}
+
+@media ( min-width : 801px ) {
+
+  body {
+    background: linear-gradient(30deg, var(--primeira), rgb(10, 82, 82));
+    height: 100vh;
+  }
+
+  .form-login input:focus, select:focus {
+    border: 2px solid var(--segunda);
+    box-shadow: 0 0 0 0;
+    outline: 0;
+  }
+
+  .form-login input:-webkit-autofill {
+    box-shadow: 0 0 0 30px #064242 inset;
+    -webkit-text-fill-color: white;
+  }
+
+  .form-login {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .paiImg-login {
+    width: 400px;
+  }
+
+  .img-login {
+    width: 100%;
+  }
+
+  .avoInputsButtonsMessageError-login {
+    align-items: center;
+    animation: animation-login1 ease-out 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @keyframes animation-login1 {
+
+    0% {
+      transform: translateY(-100px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .paiInputs-login, .paiButtons-login, .paiMessageError-login {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .inputPassword-login, .inputEmail-login {
+    background-color: transparent;
+    border: 2px solid var(--segunda);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px rgb(51, 51, 51);
+    color: white;
+    font-weight: 900;
+    height: 35px;
+    margin: 5px 0;
+    padding: 12px 10px 12px 50px;
+    width: 300px;
+  }
+
+  .inputPassword-login::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputEmail-login::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .paiButtons-login {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 50px 0;
+  }
+
+  .buttonLogin-login {
+    background: linear-gradient(to top, var(--segunda), #c39625);
+    background-color: var(--segunda);
+    border: 0 solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    margin: 5px 0;
+    padding: 14px 15px;
+    text-decoration: none;
+    width: 360px;
+  }
+
+  .buttonLogin-login:disabled {
+    filter: opacity(0.4);
+  }
+
+  .buttonRegister-login {
+    background: linear-gradient(to bottom, rgb(185, 148, 0), rgb(134, 107, 0));
+    background-color: #ece9e9;
+    border: 0 solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    margin: 5px 0;
+    padding: 14px 15px;
+    text-decoration: none;
+    width: 360px;
+  }
+
+  .iconEmail-login, .iconPassword-login {
+    color: rgb(163, 163, 163);
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 22px;
+    position: absolute;
+  }
+
+  .error-login {
+    align-items: center;
+    animation: animation-error1 ease-out 4.01s;
+    background: linear-gradient(to bottom, #e52c2c, #7d1717);
+    background-color: #e52c2c;
+    border-radius: 12px;
+    box-shadow: 2px 2px 6px 2px rgb(52, 52, 52);
+    display: flex;
+    flex-direction: column;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    margin: 10px 0 20px;
+    padding: 15px 10px 30px;
+    text-align: center;
+    width: 75vw;
+  }
+
+  @keyframes animation-error1 {
+
+    0% {
+      position: absolute;
+      top: 0;
+    }
+
+    20% {
+      position: absolute;
+      top: 40px;
+    }
+
+    90% {
+      position: absolute;
+      top: 40px;
+    }
+
+    100% {
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .iconError-login {
+    font-size: 30px;
+    margin: 10px;
+  }
+
+  .progress-login {
+    animation: animation-progressError ease-out 4s;
+    background-color: black;
+    border-bottom-left-radius: 12px;
+    bottom: 0;
+    height: 10px;
+    left: 0;
+    position: absolute;
+  }
+
+  @keyframes animation-progressError {
+
+    0% {
+      width: 0;
+    }
+
+    90% {
+      border-bottom-right-radius: 12px;
+    }
+
+    100% {
+      border-bottom-right-radius: 12px;
+      width: 100%;
+    }
+  }
+}
+
+/*
+@media ( min-width : 1025px ) {  }
+@media ( min-width : 1281px ) { }
+*/
