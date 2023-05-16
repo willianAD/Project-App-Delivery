@@ -6,9 +6,9 @@ const validateToken = require('../middlewares/validateToken');
 
 const userRoutes = express();
 
-userRoutes.get('/', user.getAll);
-
 userRoutes.get('/:id', user.getById);
+
+userRoutes.get('/', user.getAll);
 
 userRoutes.post('/email', user.getUser);
 

@@ -21,6 +21,7 @@ const create = (sale) => Sale.create(
     totalPrice: sale.totalPrice,
     deliveryAddress: sale.deliveryAddress,
     deliveryNumber: sale.deliveryNumber,
+    saleDate: (new Date()),
     status: sale.status,
   },
 );

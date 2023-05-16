@@ -41,10 +41,10 @@ class Login extends React.Component {
       const { email, password } = this.state;
       const { dispatch, history } = this.props;
       const { token } = await requestPost('/user/login', { email, password });
-      const { name, role } = await requestPost('/user/email', { email });
+      const { id, name, role } = await requestPost('/user/email', { email });
 
       localStorage.setItem('user', JSON.stringify({
-        name, email, role, token,
+        id, name, email, role, token,
       }));
 
       if (role === 'customer') {
