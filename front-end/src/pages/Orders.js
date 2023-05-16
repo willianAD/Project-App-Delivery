@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getLocalStorage } from '../helpers/index';
-import { requestGet, postHeader } from '../services/request';
+import { requestGet, requestPut } from '../services/request';
 import NavBar from '../components/NavBar';
 
 class Orders extends React.Component {
@@ -11,6 +10,7 @@ class Orders extends React.Component {
     this.state = {
       sale: {},
       status: '',
+      button: false,
     };
   }
 
@@ -22,12 +22,11 @@ class Orders extends React.Component {
     const { location: { pathname } } = this.props;
     const saleId = pathname[pathname.length - 1];
     const sale = await requestGet(`/seller/${saleId}`);
-    const seller = await requestGet(`/user/${sale.sellerId}`);
     const newDate = this.formatDate(sale.saleDate);
-    console.log(sale);
     this.setState({
-      sale: { ...sale, saleDate: (await newDate).toString(), seller: (await seller) },
+      sale: { ...sale, saleDate: (await newDate).toString() },
       status: sale.status,
+      button: sale.status !== 'Entregue',
     });
   };
 
@@ -36,19 +35,19 @@ class Orders extends React.Component {
 
     const year = dateFormat.getFullYear();
     const day = dateFormat.getDate();
-    const month = dateFormat.getMonth();
+    const wrorngFormatMonth = dateFormat.getMonth() + 1;
+
+    const month = wrorngFormatMonth >= 10 ? wrorngFormatMonth : `0${wrorngFormatMonth}`;
 
     return `${day}/${month}/${year}`;
   };
 
   checkSale = async () => {
     const { sale } = this.state;
-    const { token } = getLocalStorage('user');
     const newStatus = 'Entregue';
-
     const body = {
-      userId: sale.userId,
-      sellerId: sale.sellerId,
+      userId: sale.user.id,
+      sellerId: sale.seller.id,
       totalPrice: sale.totalPrice,
       deliveryAddress: sale.deliveryAddress,
       deliveryNumber: sale.deliveryNumber,
@@ -57,107 +56,96 @@ class Orders extends React.Component {
 
     this.setState({
       status: newStatus,
+      button: true,
     });
 
-    await postHeader('/seller/orders', body, token);
+    await requestPut(`/seller/${sale.id}`, body);
   };
 
   render() {
-    const { sale, status } = this.state;
-    const { seller } = sale;
+    const { sale, status, button } = this.state;
     return (
-      sale.products
-        ? (
-          <>
-            <NavBar />
-            <h1>Detalhe do pedido</h1>
+      sale.products ? (
+        <>
+          <NavBar />
+          <h1>Detalhe do pedido</h1>
+          <div>
             <div>
-              <div>
-                <p
-                  data-testid="customer_order_details__element-order-details-label-order-id"
-                >
-                  PEDIDO
-                  {' '}
-                  { sale.id }
-                </p>
-                <p
-                  data-testid="customer_order_details__element-order-details-label-seller-name"
-                >
-                  P.Vendedora:
-                  {' '}
-                  { seller.name }
-                </p>
-                <p
-                  data-testid="customer_order_details__element-order-details-label-order-date"
-                >
-                  { sale.saleDate }
-                </p>
-                <p
-                  data-testid={
-                    `customer_order_details__element-order-details-label-delivery-status${sale.id}`
-                  }
-                >
-                  { status }
-                </p>
-                <button
-                  data-testid="customer_order_details__button-delivery-check"
-                  type="button"
-                  onClick={ this.checkSale }
-                  disabled={ status === 'Entregue' }
-                >
-                  Marcar como entregue
-                </button>
-              </div>
-              { sale.products.map((a, index) => (
-                <>
-                  <p
-                    data-testid={
-                      `customer_order_details__element-order-table-item-number-${index}`
-                    }
-                  >
-                    { index }
-                  </p>
-                  <p
-                    data-testid={
-                      `customer_order_details__element-order-table-name-${index}`
-                    }
-                  >
-                    { a.name }
-                  </p>
-                  <p
-                    data-testid={
-                      `customer_order_details__element-order-table-quantity-${index}`
-                    }
-                  >
-                    { a.quantity }
-                  </p>
-                  <p
-                    data-testid={
-                      `customer_order_details__element-order-table-sub-total-${index}`
-                    }
-                  >
-                    { a.price }
-                  </p>
-                  <p
-                    data-testid={
-                      `customer_order_details__element-order-table-unit-price-${index}`
-                    }
-                  >
-                    {
-                      (Number(a.SalesProduct.quantity) * Number(a.price)).toFixed(2)
-                    }
-                  </p>
-                </>
-              ))}
               <p
-                data-testid="customer_order_details__element-order-total-price"
+                data-testid="customer_order_details__element-order-details-label-order-id"
               >
-                Total: R$
-                { sale.totalPrice }
+                PEDIDO
+                {' '}
+                { sale.id }
               </p>
+              <p
+                data-testid="customer_order_details__element-order-details-label-seller-name"
+              >
+                P.Vendedora:
+                {' '}
+                { sale.seller.name }
+              </p>
+              <p
+                data-testid="customer_order_details__element-order-details-label-order-date"
+              >
+                { sale.saleDate }
+              </p>
+              <p
+                data-testid={ `customer_order_details__element-order-details-label-delivery-status${sale.id}` }
+              >
+                { status }
+              </p>
+              <button
+                data-testid="customer_order_details__button-delivery-check"
+                type="button"
+                onClick={ this.checkSale }
+                disabled={ button }
+              >
+                Marcar como entregue
+              </button>
             </div>
-          </>)
-        : <p> Loading  </p>
+            { sale.products ? sale.products.map((a, index) => (
+              <>
+                <p
+                  data-testid={ `customer_order_details__element-order-table-item-number-${index}` }
+                >
+                  { index + 1 }
+                </p>
+                <p
+                  data-testid={ `customer_order_details__element-order-table-name-${index}` }
+                >
+                  { a.name }
+                </p>
+                <p
+                  data-testid={ `customer_order_details__element-order-table-quantity-${index}` }
+                >
+                  { a.quantity }
+                </p>
+                <p
+                  data-testid={ `customer_order_details__element-order-table-sub-total-${index}` }
+                >
+                  { a.price }
+                </p>
+                <p
+                  data-testid={ `customer_order_details__element-order-table-unit-price-${index}` }
+                >
+                  {
+                    (Number(a.SalesProduct.quantity) * Number(a.price)).toFixed(2)
+                  }
+                </p>
+              </>
+            )) : <p> Loading </p> }
+            <p
+              data-testid="customer_order_details__element-order-total-price"
+            >
+              Total: R$
+              <spna>
+                { sale.totalPrice.replace('.', ',') }
+              </spna>
+            </p>
+          </div>
+        </>
+      ) : <p> Loading </p>
     );
   }
 }

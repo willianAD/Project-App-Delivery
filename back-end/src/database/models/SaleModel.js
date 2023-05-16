@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-lines-per-function
 module.exports = (sequelize, DataTypes) => {
   const Sale = sequelize.define('Sale', {
     id: { autoIncrement: true, primaryKey: true, type: DataTypes.INTEGER },
@@ -9,28 +10,31 @@ module.exports = (sequelize, DataTypes) => {
     saleDate: { type: DataTypes.DATE,
     defaultValue: DataTypes.NOW },
     status: { type: DataTypes.STRING },
-  },
-  {
+  }, {
     timestamps: false,
     underscored: true,
     tableName: 'sales',
   });
 
   Sale.associate = (models) => {
-    Sale.belongsToMany(models.User, 
-      {
-        as: 'user',
-        through: Sale,
-        foreignKey: 'userId',
-        otherKey: 'id',
+    Sale.belongsTo(models.User, {
+      foreignKey: {
+        name: 'userId',
+        allowNull: false,
       },
-      {
-        as: 'seller',
-        through: Sale,
-        foreignKey: 'sellerId',
-        otherKey: 'id',
-      });
-  }
+      targetKey: 'id',
+      as: 'user',
+    });
+  
+  Sale.belongsTo(models.User, {
+      foreignKey: {
+        name: 'sellerId',
+        allowNull: false,
+      },
+      targetKey: 'id',
+      as: 'seller',
+    });
+    };
 
   return Sale;
 };
