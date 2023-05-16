@@ -6,7 +6,6 @@ import Register from './pages/Register';
 import CustomerOrders from './pages/CustomerOrders';
 import Products from './pages/Products';
 import Checkout from './pages/Checkout';
-import Register from './pages/Register';
 import Orders from './pages/Orders';
 import './App.css';
 

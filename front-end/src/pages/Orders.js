@@ -32,12 +32,13 @@ class Orders extends React.Component {
 
   formatDate = async (date) => {
     const dateFormat = new Date(date);
+    const ten = 10;
 
     const year = dateFormat.getFullYear();
     const day = dateFormat.getDate();
     const wrorngFormatMonth = dateFormat.getMonth() + 1;
 
-    const month = wrorngFormatMonth >= 10 ? wrorngFormatMonth : `0${wrorngFormatMonth}`;
+    const month = wrorngFormatMonth >= ten ? wrorngFormatMonth : `0${wrorngFormatMonth}`;
 
     return `${day}/${month}/${year}`;
   };
@@ -79,19 +80,22 @@ class Orders extends React.Component {
                 { sale.id }
               </p>
               <p
-                data-testid="customer_order_details__element-order-details-label-seller-name"
+                data-testid={ `customer_order_details__element-order-
+                details-label-seller-name` }
               >
                 P.Vendedora:
                 {' '}
                 { sale.seller.name }
               </p>
               <p
-                data-testid="customer_order_details__element-order-details-label-order-date"
+                data-testid={ `customer_order_details__element-order-
+                details-label-order-date` }
               >
                 { sale.saleDate }
               </p>
               <p
-                data-testid={ `customer_order_details__element-order-details-label-delivery-status${sale.id}` }
+                data-testid={ `customer_order_details__element-order-
+                details-label-delivery-status${sale.id}` }
               >
                 { status }
               </p>
@@ -107,27 +111,32 @@ class Orders extends React.Component {
             { sale.products ? sale.products.map((a, index) => (
               <>
                 <p
-                  data-testid={ `customer_order_details__element-order-table-item-number-${index}` }
+                  data-testid={ `customer_order_details__element-order-
+                  table-item-number-${index}` }
                 >
                   { index + 1 }
                 </p>
                 <p
-                  data-testid={ `customer_order_details__element-order-table-name-${index}` }
+                  data-testid={ `customer_order_details__element-order-
+                  table-name-${index}` }
                 >
                   { a.name }
                 </p>
                 <p
-                  data-testid={ `customer_order_details__element-order-table-quantity-${index}` }
+                  data-testid={ `customer_order_details__element-order-
+                  table-quantity-${index}` }
                 >
                   { a.quantity }
                 </p>
                 <p
-                  data-testid={ `customer_order_details__element-order-table-sub-total-${index}` }
+                  data-testid={ `customer_order_details__element-order-
+                  table-sub-total-${index}` }
                 >
                   { a.price }
                 </p>
                 <p
-                  data-testid={ `customer_order_details__element-order-table-unit-price-${index}` }
+                  data-testid={ `customer_order_details__element-order-
+                  table-unit-price-${index}` }
                 >
                   {
                     (Number(a.SalesProduct.quantity) * Number(a.price)).toFixed(2)
