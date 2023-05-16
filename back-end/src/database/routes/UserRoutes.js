@@ -8,6 +8,8 @@ const userRoutes = express();
 
 userRoutes.get('/', user.getAll);
 
+userRoutes.get('/:id', user.getById);
+
 userRoutes.post('/email', user.getUser);
 
 userRoutes.post('/login', validateLogin, user.login);

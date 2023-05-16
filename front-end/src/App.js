@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Products from './pages/Products';
 import Checkout from './pages/Checkout';
 import Register from './pages/Register';
+import Orders from './pages/Orders';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Route exact path="/register" component={ Register } />
       <Route exact path="/customer/products" component={ Products } />
       <Route exact path="/customer/checkout" component={ Checkout } />
+      <Route exact path="/customer/orders/:id" component={ Orders } />
     </Switch>
   );
 }

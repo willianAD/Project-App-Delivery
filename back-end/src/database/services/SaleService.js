@@ -1,6 +1,6 @@
 const { Sale, Product } = require('../models');
 
-const getDetailsById = (saleId) => Sale.findAll({
+const getDetailsById = (saleId) => Sale.findOne({
   where: { id: saleId },
   include: [
     { model: Product, as: 'products' },
