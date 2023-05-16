@@ -7,6 +7,7 @@ const validateRegister = async (req, res, next) => {
 
   if (validateResponse.error) return res.status(404)
       .json({ message: 'Some required fields are missing' });
+  }
 
   const user = await findOneLogin(email, name);
 

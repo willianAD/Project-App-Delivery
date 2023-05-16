@@ -6,6 +6,13 @@ const getDetailsById = async (req, res) => {
   return res.status(200).json(salesDetails);
 };
 
+const putDetails = async (req, res) => {
+  const { id } = req.params;
+  const updatedBody = req.body;
+  const salesDetails = await saleService.putDetails({ id, ...updatedBody });
+  return res.status(200).json(salesDetails);
+};
+
 const getAll = async (_req, res) => {
   const allSales = await saleService.getAll();
 
@@ -35,4 +42,5 @@ module.exports = {
   getAllById,
   create,
   getDetailsById,
+  putDetails,
 };
