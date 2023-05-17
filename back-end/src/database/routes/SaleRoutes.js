@@ -11,6 +11,8 @@ saleRoutes.post('/orders', sale.create);
 
 saleRoutes.get('/:id', sale.getDetailsById);
 
+saleRoutes.put('/:id', sale.putDetails);
+
 module.exports = {
   saleRoutes,
 };

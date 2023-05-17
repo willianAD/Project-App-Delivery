@@ -24,14 +24,14 @@ const create = async (req, res) => {
 };
 
 const update = async (req, res) => {
-  const { id } = req.params
+  const { id } = req.params;
   const { name, price, urlImage } = req.body;
 
   const productId = await productService.getById(id);
 
   if (!productId) return res.status(400).json({ message: 'Product does not exist!' });
 
-  const updateProduct = await productService.update({ id, name, price, urlImage});
+  const updateProduct = await productService.update({ id, name, price, urlImage });
 
   if (+updateProduct === 0) return res.status(400).json({ message: 'Product cannot be changed!' });
 
