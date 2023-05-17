@@ -151,7 +151,6 @@ class Register extends React.Component {
 }
 
 Register.propTypes = {
-  // dispatch: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,

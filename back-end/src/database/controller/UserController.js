@@ -21,6 +21,13 @@ const getAll = async (_req, res) => {
   return res.status(200).json(allUsers);
 };
 
+const getById = async (req, res) => {
+  const { id } = req.params;
+  const user = await userService.getById(id);
+
+  return res.status(200).json(user);
+};
+
 const getUser = async (req, res) => {
   const { email } = req.body;
   const user = await userService.findOneEmail(email);
@@ -59,4 +66,5 @@ module.exports = {
   getUser,
   create,
   deleteUser,
+  getById,
 };
