@@ -18,7 +18,10 @@ class Login extends React.Component {
 
   componentDidMount() {
     const { history } = this.props;
-    history.push('/login');
+
+    const verify = JSON.parse(localStorage.getItem('user'));
+    if (!verify) return history.push('/login');
+    history.push('/customer/products');
   }
 
   handleChange = ({ target }) => {

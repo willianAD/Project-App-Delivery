@@ -64,6 +64,7 @@ class Orders extends React.Component {
   };
 
   render() {
+    const dataTest = 'customer_order_details__element-order-';
     const { sale, status, button } = this.state;
     return (
       sale.products ? (
@@ -73,29 +74,26 @@ class Orders extends React.Component {
           <div>
             <div>
               <p
-                data-testid="customer_order_details__element-order-details-label-order-id"
+                data-testid={ `${dataTest}details-label-order-id` }
               >
                 PEDIDO
                 {' '}
                 { sale.id }
               </p>
               <p
-                data-testid={ `customer_order_details__element-order-
-                details-label-seller-name` }
+                data-testid={ `${dataTest}details-label-seller-name` }
               >
                 P.Vendedora:
                 {' '}
                 { sale.seller.name }
               </p>
               <p
-                data-testid={ `customer_order_details__element-order-
-                details-label-order-date` }
+                data-testid={ `${dataTest}details-label-order-date` }
               >
                 { sale.saleDate }
               </p>
               <p
-                data-testid={ `customer_order_details__element-order-
-                details-label-delivery-status${sale.id}` }
+                data-testid={ `${dataTest}details-label-delivery-status${sale.id}` }
               >
                 { status }
               </p>
@@ -111,32 +109,27 @@ class Orders extends React.Component {
             { sale.products ? sale.products.map((a, index) => (
               <>
                 <p
-                  data-testid={ `customer_order_details__element-order-
-                  table-item-number-${index}` }
+                  data-testid={ `${dataTest}table-item-number-${index}` }
                 >
                   { index + 1 }
                 </p>
                 <p
-                  data-testid={ `customer_order_details__element-order-
-                  table-name-${index}` }
+                  data-testid={ `${dataTest}table-name-${index}` }
                 >
                   { a.name }
                 </p>
                 <p
-                  data-testid={ `customer_order_details__element-order-
-                  table-quantity-${index}` }
+                  data-testid={ `${dataTest}table-quantity-${index}` }
                 >
                   { a.quantity }
                 </p>
                 <p
-                  data-testid={ `customer_order_details__element-order-
-                  table-sub-total-${index}` }
+                  data-testid={ `${dataTest}table-sub-total-${index}` }
                 >
                   { a.price }
                 </p>
                 <p
-                  data-testid={ `customer_order_details__element-order-
-                  table-unit-price-${index}` }
+                  data-testid={ `${dataTest}table-unit-price-${index}` }
                 >
                   {
                     (Number(a.SalesProduct.quantity) * Number(a.price)).toFixed(2)
@@ -145,7 +138,7 @@ class Orders extends React.Component {
               </>
             )) : <p> Loading </p> }
             <p
-              data-testid="customer_order_details__element-order-total-price"
+              data-testid={ `${dataTest}total-price` }
             >
               Total: R$
               <spna>

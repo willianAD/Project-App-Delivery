@@ -7,13 +7,13 @@ class NavBar extends React.Component {
     return (
       <nav>
         <Link
-          to="/products"
+          to="/customer/products"
           data-testid="customer_products__element-navbar-link-products"
         >
           Produtos
         </Link>
         <Link
-          to="/checkout"
+          to="/customer/orders"
           data-testid="customer_products__element-navbar-link-orders"
         >
           Meus pedidos

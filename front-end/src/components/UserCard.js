@@ -31,7 +31,7 @@ class UserCard extends React.Component {
         <div>
           <div>
             <p data-testid={ `customer_orders__element-delivery-status-${orderNum}` }>
-              {status.toUpperCase()}
+              {status}
             </p>
             <p data-testid={ `customer_orders__element-order-date-${orderNum}` }>
               {formatDate(saleDate)}
