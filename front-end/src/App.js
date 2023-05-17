@@ -9,6 +9,7 @@ function App() {
   return (
     <Switch>
       <Route exact path="/" component={ Login } />
+      <Route exact path="/login" component={ Login } />
       <Route exact path="/seller/orders" component={ SellerOrders } />
       <Route exact path="/seller/orders/:id" component={ OrderDetails } />
     </Switch>

@@ -15,7 +15,6 @@ class OrderDetails extends Component {
     const { match } = this.props;
     const orderId = match.params.id;
     const response = await requestGet(`seller/orders/${orderId}`);
-    console.log(response);
 
     this.setState({
       orderDetails: response,
@@ -23,9 +22,7 @@ class OrderDetails extends Component {
   }
 
   render() {
-    const {
-      orderDetails,
-    } = this.state;
+    const { orderDetails } = this.state;
 
     if (!orderDetails) {
       return <div>Carregando...</div>;

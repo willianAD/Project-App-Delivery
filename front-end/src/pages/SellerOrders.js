@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Navbar from '../components/SellerOrders/Navbar';
@@ -9,7 +8,6 @@ import { requestGet } from '../services/request';
 class SellerOrders extends Component {
   constructor() {
     super();
-    this.handleClickOrder = this.handleClickOrder.bind(this);
 
     this.state = {
       ordersArray: [],
@@ -18,15 +16,16 @@ class SellerOrders extends Component {
 
   async componentDidMount() {
     const response = await requestGet('seller/orders');
-    console.log('SellerOrders', response);
+
+    const { id } = JSON.parse(localStorage.getItem('user'));
+    const arraySeller = response.filter((e) => e.sellerId === id);
 
     this.setState({
-      ordersArray: response,
+      ordersArray: arraySeller,
     });
   }
 
   handleClickOrder(orderId) {
-    console.log(orderId);
     const { history } = this.props;
     history.push(`/seller/orders/${orderId}`);
   }
@@ -48,9 +47,7 @@ class SellerOrders extends Component {
           <button
             type="button"
             key={ key }
-            onClick={ () => {
-              this.handleClickOrder(order.id);
-            } }
+            onClick={ () => this.handleClickOrder(order.id) }
           >
             <OrderCard
               key={ key }
@@ -73,4 +70,4 @@ SellerOrders.propTypes = {
   }).isRequired,
 };
 
-export default withRouter(connect()(SellerOrders));
+export default withRouter(SellerOrders);

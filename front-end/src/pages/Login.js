@@ -13,6 +13,11 @@ class Login extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const { history } = this.props;
+    history.push('/login');
+  }
+
   handleChange = ({ target }) => {
     this.setState({
       [target.name]: target.value,
@@ -22,20 +27,35 @@ class Login extends React.Component {
   verifyInputs = () => {
     const characters = 6;
     const { email, password } = this.state;
-    const rejexEmail = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    const validate = (rejexEmail.test(email) && email.length > characters
-      && password.length <= characters);
-    this.setState({
-      buttonDisable: !validate,
-    });
+    const rejexEmail = /^[a-zA-Z0-9._-]+@([a-z]+\.)+[\w-]{2,4}$/;
+    const validate = (rejexEmail.test(email) && password.length >= characters);
+
+    this.setState({ buttonDisable: !validate });
   };
 
-  handleSubmit = () => {
-    const { email } = this.state;
-    const { dispatch, history } = this.props;
-    localStorage.setItem('user', JSON.stringify({ email }));
-    dispatch(handleUser(email));
-    history.push('/register');
+  handleSubmit = async () => {
+    try {
+      const { email, password } = this.state;
+      const { dispatch, history } = this.props;
+      const { token } = await requestPost('/user/login', { email, password });
+      const { id, name, role } = await requestPost('/user/email', { email });
+
+      localStorage.setItem('user', JSON.stringify({
+        id, name, email, role, token,
+      }));
+
+      if (role === 'customer') {
+        history.push('/customer/products');
+      } else if (role === 'seller') {
+        history.push('/seller/orders');
+      } else {
+        history.push('/admin/manage');
+      }
+
+      dispatch(handleUser(email));
+    } catch (error) {
+      return error;
+    }
   };
 
   render() {

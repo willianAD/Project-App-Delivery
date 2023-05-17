@@ -1,18 +1,18 @@
+const md5 = require('md5');
 const { userService } = require('../services');
-const bcrypt = require('bcrypt');
 const { generateToken } = require('../auth/authToken');
 
 const login = async (req, res) => {
-    const { name, email, password } = req.body;
+  const { name, email, password } = req.body;
 
-    const user = await userService.findOneLogin(email);
-    
-    const decryptPassword = bcrypt.compareSync(password, user.password);
+  const user = await userService.findOneLogin(email);
 
-    if (!decryptPassword) return res.status(400).json({ message: 'Invalid password.' });
- 
-    const token = generateToken({ name, email });
-    return res.status(200).json({ token });
+  const decryptPassword = md5(password) === user.password;
+
+  if (!decryptPassword) return res.status(404).json({ message: 'Not found' });
+
+  const token = await generateToken({ name, email });
+  return res.status(200).json({ token });
 };
 
 const getAll = async (_req, res) => {
@@ -22,17 +22,21 @@ const getAll = async (_req, res) => {
 };
 
 const create = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, role } = req.body;
 
-  const salt = bcrypt.genSaltSync(5);
+  const passwordHash = md5(password);
 
-  const passwordHash = bcrypt.hashSync(password, salt);
+  if (!role) {
+    await userService.create({ name, email, password: passwordHash, role: 'customer' });
+    const token = await generateToken({ name, email });
+    return res.status(201).json({ token });
+  } 
 
-  await userService.create({ name, email, password: passwordHash, role: 'customer' });
+  await userService.create({ name, email, password: passwordHash, role });
 
-  const token = generateToken({ name, email });
+  const token = await generateToken({ name, email });
 
-  return res.status(200).json({ token });
+  return res.status(201).json({ token });
 };
 
 module.exports = {
