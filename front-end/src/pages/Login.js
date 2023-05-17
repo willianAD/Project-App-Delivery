@@ -45,10 +45,17 @@ class Login extends React.Component {
       const { email, password } = this.state;
       const { dispatch, history } = this.props;
       const { token } = await requestPost('/user/login', { email, password });
+<<<<<<< HEAD
       const { name, role } = await requestPost('/user/email', { email });
 
       localStorage.setItem('user', JSON.stringify({
         name, email, role, token,
+=======
+      const { id, name, role } = await requestPost('/user/email', { email });
+
+      localStorage.setItem('user', JSON.stringify({
+        id, name, email, role, token,
+>>>>>>> bf77a0a (fix: details to make login possible)
       }));
 
       if (role === 'customer') {
@@ -61,6 +68,7 @@ class Login extends React.Component {
 
       dispatch(handleUser(email));
     } catch (error) {
+<<<<<<< HEAD
       this.setState({ messageError: false });
       const quatroSeg = 4000;
       setTimeout(() => { this.setState({ messageError: true }); }, quatroSeg);
@@ -70,6 +78,10 @@ class Login extends React.Component {
   createAccount = () => {
     const { history } = this.props;
     history.push('/register');
+=======
+      return error;
+    }
+>>>>>>> bf77a0a (fix: details to make login possible)
   };
 
   render() {

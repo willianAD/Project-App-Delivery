@@ -8,7 +8,6 @@ import { requestGet } from '../services/request';
 class SellerOrders extends Component {
   constructor() {
     super();
-    this.handleClickOrder = this.handleClickOrder.bind(this);
 
     this.state = {
       ordersArray: [],
