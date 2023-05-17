@@ -1,0 +1,805 @@
+@media ( min-width : 320px ) and ( max-width : 479px ) {
+
+  body {
+    background: linear-gradient(30deg, var(--primeira), rgb(10, 82, 82));
+    height: 100vh;
+  }
+
+  .buttonBack-register {
+    all: unset;
+    font-size: 35px;
+    left: 12px;
+    position: absolute;
+    top: 10px;
+  }
+
+  .form-register input:focus, select:focus {
+    border: 2px solid var(--segunda);
+    box-shadow: 0 0 0 0;
+    outline: 0;
+  }
+
+  .form-register input:-webkit-autofill {
+    box-shadow: 0 0 0 30px #064242 inset;
+    -webkit-text-fill-color: white;
+  }
+
+  .form-register {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .paiImg-register {
+    width: 90%;
+  }
+
+  .img-register {
+    width: 100%;
+  }
+
+  .avoInputsButtonsMessageError-register {
+    align-items: center;
+    animation: animation-register2 ease-out 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @keyframes animation-register2 {
+
+    0% {
+      transform: translateY(-100px);
+      z-index: 2;
+    }
+
+    100% {
+      transform: translateY(0);
+      z-index: 2;
+    }
+  }
+
+  .title-register {
+    color: white;
+    font-family: Gill Sans , Gill Sans MT , Calibri , Trebuchet MS , sans-serif;
+    margin: 0 0 20px;
+  }
+
+  .paiInputs-register, .paiButtons-register, .paiMessageError-register {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .inputName-register, .inputPassword-register, .inputEmail-register {
+    background-color: transparent;
+    border: 2px solid var(--segunda);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px rgb(51, 51, 51);
+    color: white;
+    font-weight: 900;
+    height: 35px;
+    margin: 5px 0;
+    padding: 12px 10px 12px 50px;
+    width: 60vw;
+  }
+
+  .inputName-register::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputPassword-register::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputEmail-register::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .buttonRegister-register {
+    background: linear-gradient(to top, var(--segunda), #c39625);
+    background-color: var(--segunda);
+    border: 0 solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    margin: 50px 0 0;
+    padding: 14px 15px;
+    text-decoration: none;
+    width: 75vw;
+  }
+
+  .buttonRegister-register :disabled {
+    filter: opacity(0.4);
+  }
+
+  .iconEmail-register, .iconPassword-register, .iconName-register {
+    color: rgb(163, 163, 163);
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 22px;
+    position: absolute;
+  }
+
+  .error-register {
+    align-items: center;
+    animation: animation-error2 ease-out 4.01s;
+    background: linear-gradient(to bottom, #e52c2c, #7d1717);
+    background-color: #e52c2c;
+    border-radius: 12px;
+    box-shadow: 2px 2px 6px 2px rgb(52, 52, 52);
+    display: flex;
+    flex-direction: column;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    margin: 10px 0 20px;
+    padding: 15px 10px 30px;
+    text-align: center;
+    width: 75vw;
+    z-index: 2;
+  }
+
+  @keyframes animation-error2 {
+
+    0% {
+      position: absolute;
+      top: 0;
+    }
+
+    20% {
+      position: absolute;
+      top: 40px;
+    }
+
+    90% {
+      position: absolute;
+      top: 40px;
+    }
+
+    100% {
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .iconError-register {
+    font-size: 30px;
+    margin: 10px;
+  }
+
+  .progress-register {
+    animation: animation-progressError2 ease-out 4s;
+    background-color: black;
+    border-bottom-left-radius: 12px;
+    bottom: 0;
+    height: 10px;
+    left: 0;
+    position: absolute;
+  }
+
+  @keyframes animation-progressError2 {
+
+    0% {
+      width: 0;
+    }
+
+    90% {
+      border-bottom-right-radius: 12px;
+    }
+
+    100% {
+      border-bottom-right-radius: 12px;
+      width: 100%;
+    }
+  }
+}
+
+@media ( min-width : 480px ) and ( max-width : 600px ) {
+
+  body {
+    background: linear-gradient(30deg, var(--primeira), rgb(10, 82, 82));
+    height: 100vh;
+  }
+
+  .buttonBack-register {
+    all: unset;
+    font-size: 35px;
+    left: 12px;
+    position: absolute;
+    top: 10px;
+  }
+
+  .form-register input:focus, select:focus {
+    border: 2px solid var(--segunda);
+    box-shadow: 0 0 0 0;
+    outline: 0;
+  }
+
+  .form-register input:-webkit-autofill {
+    box-shadow: 0 0 0 30px #064242 inset;
+    -webkit-text-fill-color: white;
+  }
+
+  .form-register {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .paiImg-register {
+    width: 70%;
+  }
+
+  .img-register {
+    width: 100%;
+  }
+
+  .avoInputsButtonsMessageError-register {
+    align-items: center;
+    animation: animation-register2 ease-out 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @keyframes animation-register2 {
+
+    0% {
+      transform: translateY(-100px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .title-register {
+    color: white;
+    font-family: Gill Sans , Gill Sans MT , Calibri , Trebuchet MS , sans-serif;
+    margin: 0 0 20px;
+  }
+
+  .paiInputs-register, .paiButtons-register, .paiMessageError-register {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .inputName-register, .inputPassword-register, .inputEmail-register {
+    background-color: transparent;
+    border: 2px solid var(--segunda);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px rgb(51, 51, 51);
+    color: white;
+    font-weight: 900;
+    height: 35px;
+    margin: 5px 0;
+    padding: 12px 10px 12px 50px;
+    width: 60vw;
+  }
+
+  .inputName-register::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputPassword-register::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputEmail-register::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .buttonRegister-register {
+    background: linear-gradient(to top, var(--segunda), #c39625);
+    background-color: var(--segunda);
+    border: 0 solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    margin: 50px 0 0;
+    padding: 14px 15px;
+    text-decoration: none;
+    width: 70vw;
+  }
+
+  .buttonRegister-register :disabled {
+    filter: opacity(0.4);
+  }
+
+  .iconEmail-register, .iconPassword-register, .iconName-register {
+    color: rgb(163, 163, 163);
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 22px;
+    position: absolute;
+  }
+
+  .error-register {
+    align-items: center;
+    animation: animation-error2 ease-out 4.01s;
+    background: linear-gradient(to bottom, #e52c2c, #7d1717);
+    background-color: #e52c2c;
+    border-radius: 12px;
+    box-shadow: 2px 2px 6px 2px rgb(52, 52, 52);
+    display: flex;
+    flex-direction: column;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    margin: 10px 0 20px;
+    padding: 15px 10px 30px;
+    text-align: center;
+    width: 75vw;
+    z-index: 2;
+  }
+
+  @keyframes animation-error2 {
+
+    0% {
+      position: absolute;
+      top: 0;
+    }
+
+    20% {
+      position: absolute;
+      top: 40px;
+    }
+
+    90% {
+      position: absolute;
+      top: 40px;
+    }
+
+    100% {
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .iconError-register {
+    font-size: 30px;
+    margin: 10px;
+  }
+
+  .progress-register {
+    animation: animation-progressError2 ease-out 4s;
+    background-color: black;
+    border-bottom-left-radius: 12px;
+    bottom: 0;
+    height: 10px;
+    left: 0;
+    position: absolute;
+  }
+
+  @keyframes animation-progressError2 {
+
+    0% {
+      width: 0;
+    }
+
+    90% {
+      border-bottom-right-radius: 12px;
+    }
+
+    100% {
+      border-bottom-right-radius: 12px;
+      width: 100%;
+    }
+  }
+}
+
+@media ( min-width : 601px ) and ( max-width : 800px ) {
+
+  body {
+    background: linear-gradient(30deg, var(--primeira), rgb(10, 82, 82));
+    height: 100vh;
+  }
+
+  .buttonBack-register {
+    all: unset;
+    font-size: 35px;
+    left: 12px;
+    position: absolute;
+    top: 10px;
+  }
+
+  .form-register input:focus, select:focus {
+    border: 2px solid var(--segunda);
+    box-shadow: 0 0 0 0;
+    outline: 0;
+  }
+
+  .form-register input:-webkit-autofill {
+    box-shadow: 0 0 0 30px #064242 inset;
+    -webkit-text-fill-color: white;
+  }
+
+  .form-register {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .paiImg-register {
+    width: 55%;
+  }
+
+  .img-register {
+    width: 100%;
+  }
+
+  .avoInputsButtonsMessageError-register {
+    align-items: center;
+    animation: animation-register2 ease-out 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @keyframes animation-register2 {
+
+    0% {
+      transform: translateY(-100px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .title-register {
+    color: white;
+    font-family: Gill Sans , Gill Sans MT , Calibri , Trebuchet MS , sans-serif;
+    margin: 0 0 20px;
+  }
+
+  .paiInputs-register, .paiButtons-register, .paiMessageError-register {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .inputName-register, .inputPassword-register, .inputEmail-register {
+    background-color: transparent;
+    border: 2px solid var(--segunda);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px rgb(51, 51, 51);
+    color: white;
+    font-weight: 900;
+    height: 35px;
+    margin: 5px 0;
+    padding: 12px 10px 12px 50px;
+    width: 350px;
+  }
+
+  .inputName-register::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputPassword-register::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputEmail-register::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .buttonRegister-register {
+    background: linear-gradient(to top, var(--segunda), #c39625);
+    background-color: var(--segunda);
+    border: 0 solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    margin: 50px 0 0;
+    padding: 14px 15px;
+    text-decoration: none;
+    width: 400px;
+  }
+
+  .buttonRegister-register :disabled {
+    filter: opacity(0.4);
+  }
+
+  .iconEmail-register, .iconPassword-register, .iconName-register {
+    color: rgb(163, 163, 163);
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 22px;
+    position: absolute;
+  }
+
+  .error-register {
+    align-items: center;
+    animation: animation-error2 ease-out 4.01s;
+    background: linear-gradient(to bottom, #e52c2c, #7d1717);
+    background-color: #e52c2c;
+    border-radius: 12px;
+    box-shadow: 2px 2px 6px 2px rgb(52, 52, 52);
+    display: flex;
+    flex-direction: column;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    margin: 10px 0 20px;
+    padding: 15px 10px 30px;
+    text-align: center;
+    width: 75vw;
+    z-index: 2;
+  }
+
+  @keyframes animation-error2 {
+
+    0% {
+      position: absolute;
+      top: 0;
+    }
+
+    20% {
+      position: absolute;
+      top: 40px;
+    }
+
+    90% {
+      position: absolute;
+      top: 40px;
+    }
+
+    100% {
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .iconError-register {
+    font-size: 30px;
+    margin: 10px;
+  }
+
+  .progress-register {
+    animation: animation-progressError2 ease-out 4s;
+    background-color: black;
+    border-bottom-left-radius: 12px;
+    bottom: 0;
+    height: 10px;
+    left: 0;
+    position: absolute;
+  }
+
+  @keyframes animation-progressError2 {
+
+    0% {
+      width: 0;
+    }
+
+    90% {
+      border-bottom-right-radius: 12px;
+    }
+
+    100% {
+      border-bottom-right-radius: 12px;
+      width: 100%;
+    }
+  }
+}
+
+@media ( min-width : 801px ) {
+
+  body {
+    background: linear-gradient(30deg, var(--primeira), rgb(10, 82, 82));
+    height: 100vh;
+  }
+
+  .buttonBack-register {
+    all: unset;
+    font-size: 35px;
+    left: 12px;
+    position: absolute;
+    top: 10px;
+  }
+
+  .form-register input:focus, select:focus {
+    border: 2px solid var(--segunda);
+    box-shadow: 0 0 0 0;
+    outline: 0;
+  }
+
+  .form-register input:-webkit-autofill {
+    box-shadow: 0 0 0 30px #064242 inset;
+    -webkit-text-fill-color: white;
+  }
+
+  .form-register {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .paiImg-register {
+    width: 400px;
+  }
+
+  .img-register {
+    width: 100%;
+  }
+
+  .avoInputsButtonsMessageError-register {
+    align-items: center;
+    animation: animation-register2 ease-out 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @keyframes animation-register2 {
+
+    0% {
+      transform: translateY(-100px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .title-register {
+    color: white;
+    font-family: Gill Sans , Gill Sans MT , Calibri , Trebuchet MS , sans-serif;
+    margin: 0 0 20px;
+  }
+
+  .paiInputs-register, .paiButtons-register, .paiMessageError-register {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .inputName-register, .inputPassword-register, .inputEmail-register {
+    background-color: transparent;
+    border: 2px solid var(--segunda);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px rgb(51, 51, 51);
+    color: white;
+    font-weight: 900;
+    height: 35px;
+    margin: 5px 0;
+    padding: 12px 10px 12px 50px;
+    width: 350px;
+  }
+
+  .inputName-register::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputPassword-register::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputEmail-register::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .buttonRegister-register {
+    background: linear-gradient(to top, var(--segunda), #c39625);
+    background-color: var(--segunda);
+    border: 0 solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    margin: 50px 0 0;
+    padding: 14px 15px;
+    text-decoration: none;
+    width: 400px;
+  }
+
+  .buttonRegister-register :disabled {
+    filter: opacity(0.4);
+  }
+
+  .iconEmail-register, .iconPassword-register, .iconName-register {
+    color: rgb(163, 163, 163);
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 22px;
+    position: absolute;
+  }
+
+  .error-register {
+    align-items: center;
+    animation: animation-error2 ease-out 4.01s;
+    background: linear-gradient(to bottom, #e52c2c, #7d1717);
+    background-color: #e52c2c;
+    border-radius: 12px;
+    box-shadow: 2px 2px 6px 2px rgb(52, 52, 52);
+    display: flex;
+    flex-direction: column;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    margin: 10px 0 20px;
+    padding: 15px 10px 30px;
+    text-align: center;
+    width: 75vw;
+    z-index: 2;
+  }
+
+  @keyframes animation-error2 {
+
+    0% {
+      position: absolute;
+      top: 0;
+    }
+
+    20% {
+      position: absolute;
+      top: 40px;
+    }
+
+    90% {
+      position: absolute;
+      top: 40px;
+    }
+
+    100% {
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .iconError-register {
+    font-size: 30px;
+    margin: 10px;
+  }
+
+  .progress-register {
+    animation: animation-progressError2 ease-out 4s;
+    background-color: black;
+    border-bottom-left-radius: 12px;
+    bottom: 0;
+    height: 10px;
+    left: 0;
+    position: absolute;
+  }
+
+  @keyframes animation-progressError2 {
+
+    0% {
+      width: 0;
+    }
+
+    90% {
+      border-bottom-right-radius: 12px;
+    }
+
+    100% {
+      border-bottom-right-radius: 12px;
+      width: 100%;
+    }
+  }
+}
