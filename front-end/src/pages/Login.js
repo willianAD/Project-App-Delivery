@@ -73,6 +73,8 @@ class Login extends React.Component {
   createAccount = () => {
     const { history } = this.props;
     history.push('/register');
+
+    return error;
   };
 
   render() {
