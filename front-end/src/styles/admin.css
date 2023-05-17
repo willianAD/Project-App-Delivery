@@ -1,0 +1,389 @@
+@media ( min-width : 320px ) and ( max-width : 479px ) {
+
+  .title-admin {
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .paiForm-Admin {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .inputName-admin, .inputPassword-admin, .inputEmail-admin {
+    background-color: transparent;
+    border: 2px solid var(--segunda);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px rgb(51, 51, 51);
+    color: white;
+    font-weight: 900;
+    height: 35px;
+    margin: 5px 0;
+    padding: 12px 10px 12px 50px;
+    width: 60vw;
+  }
+
+  .inputRole-admin {
+    background-color: transparent;
+    border: 2px solid var(--segunda);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px rgb(51, 51, 51);
+    color: rgb(156, 156, 156);
+    font-weight: 900;
+    height: 55px;
+    margin: 5px 0;
+    padding: 12px 10px 12px 50px;
+    width: 70vw;
+  }
+
+  .iconEmail-admin, .iconPassword-admin, .iconName-admin {
+    color: rgb(163, 163, 163);
+    font-size: 30px;
+    margin-left: 15px;
+    margin-top: 22px;
+    position: absolute;
+  }
+
+  .iconRole-admin {
+    color: rgb(163, 163, 163);
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 18px;
+    position: absolute;
+  }
+
+  .inputName-admin::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputPassword-admin::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputEmail-admin::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .buttonRegister-admin {
+    background: linear-gradient(to top, var(--segunda), #c39625);
+    background-color: var(--segunda);
+    border: 0 solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    margin: 50px 0 0;
+    padding: 14px 15px;
+    text-decoration: none;
+    width: 75vw;
+  }
+
+  .buttonRegister-admin :disabled {
+    filter: opacity(0.4);
+  }
+
+  .btn-admin {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
+@media ( min-width : 480px ) and ( max-width : 600px ) {
+
+  .title-admin {
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .paiForm-Admin {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .inputName-admin, .inputPassword-admin, .inputEmail-admin {
+    background-color: transparent;
+    border: 2px solid var(--segunda);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px rgb(51, 51, 51);
+    color: white;
+    font-weight: 900;
+    height: 35px;
+    margin: 5px 0;
+    padding: 12px 10px 12px 50px;
+    width: 60vw;
+  }
+
+  .inputRole-admin {
+    background-color: transparent;
+    border: 2px solid var(--segunda);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px rgb(51, 51, 51);
+    color: rgb(156, 156, 156);
+    font-weight: 900;
+    height: 55px;
+    margin: 5px 0;
+    padding: 12px 10px 12px 50px;
+    width: 70vw;
+  }
+
+  .iconEmail-admin, .iconPassword-admin, .iconName-admin {
+    color: rgb(163, 163, 163);
+    font-size: 30px;
+    margin-left: 15px;
+    margin-top: 22px;
+    position: absolute;
+  }
+
+  .iconRole-admin {
+    color: rgb(163, 163, 163);
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 18px;
+    position: absolute;
+  }
+
+  .inputName-admin::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputPassword-admin::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputEmail-admin::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .buttonRegister-admin {
+    background: linear-gradient(to top, var(--segunda), #c39625);
+    background-color: var(--segunda);
+    border: 0 solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    margin: 50px 0 0;
+    padding: 14px 15px;
+    text-decoration: none;
+    width: 75vw;
+  }
+
+  .buttonRegister-admin :disabled {
+    filter: opacity(0.4);
+  }
+
+  .btn-admin {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
+@media ( min-width : 601px ) and ( max-width : 800px ) {
+
+  .title-admin {
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .paiForm-Admin {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .inputName-admin, .inputPassword-admin, .inputEmail-admin {
+    background-color: transparent;
+    border: 2px solid var(--segunda);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px rgb(51, 51, 51);
+    color: white;
+    font-weight: 900;
+    height: 35px;
+    margin: 5px 0;
+    padding: 12px 10px 12px 50px;
+    width: 60vw;
+  }
+
+  .inputRole-admin {
+    background-color: transparent;
+    border: 2px solid var(--segunda);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px rgb(51, 51, 51);
+    color: rgb(156, 156, 156);
+    font-weight: 900;
+    height: 55px;
+    margin: 5px 0;
+    padding: 12px 10px 12px 50px;
+    width: 65vw;
+  }
+
+  .iconEmail-admin, .iconPassword-admin, .iconName-admin {
+    color: rgb(163, 163, 163);
+    font-size: 30px;
+    margin-left: 15px;
+    margin-top: 22px;
+    position: absolute;
+  }
+
+  .iconRole-admin {
+    color: rgb(163, 163, 163);
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 18px;
+    position: absolute;
+  }
+
+  .inputName-admin::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputPassword-admin::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputEmail-admin::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .buttonRegister-admin {
+    background: linear-gradient(to top, var(--segunda), #c39625);
+    background-color: var(--segunda);
+    border: 0 solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    margin: 50px 0 0;
+    padding: 14px 15px;
+    text-decoration: none;
+    width: 75vw;
+  }
+
+  .buttonRegister-admin :disabled {
+    filter: opacity(0.4);
+  }
+
+  .btn-admin {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
+@media ( min-width : 801px ) {
+
+  .title-admin {
+    color: white;
+    margin: 20px 0;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .paiForm-Admin {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 0 30px;
+  }
+
+  .inputName-admin, .inputPassword-admin, .inputEmail-admin {
+    background-color: transparent;
+    border: 2px solid var(--segunda);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px rgb(51, 51, 51);
+    color: white;
+    font-weight: 900;
+    height: 35px;
+    margin: 10px;
+    padding: 12px 10px 12px 50px;
+    width: 300px;
+  }
+
+  .inputRole-admin {
+    background-color: transparent;
+    border: 2px solid var(--segunda);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px rgb(51, 51, 51);
+    color: rgb(156, 156, 156);
+    font-weight: 900;
+    height: 65px;
+    margin: 5px 0;
+    padding: 12px 10px 12px 50px;
+    width: 200px;
+  }
+
+  .iconEmail-admin, .iconPassword-admin, .iconName-admin {
+    color: rgb(163, 163, 163);
+    font-size: 30px;
+    margin-left: 20px;
+    margin-top: 25px;
+    position: absolute;
+  }
+
+  .iconRole-admin {
+    color: rgb(163, 163, 163);
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 22px;
+    position: absolute;
+  }
+
+  .inputName-admin::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputPassword-admin::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .inputEmail-admin::placeholder {
+    color: rgb(163, 163, 163);
+  }
+
+  .buttonRegister-admin {
+    background: linear-gradient(to top, var(--segunda), #c39625);
+    background-color: var(--segunda);
+    border: 0 solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-family: Arial , Helvetica , sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    margin: 50px 0 0;
+    padding: 14px 15px;
+    text-decoration: none;
+    width: 600px;
+  }
+
+  .buttonRegister-admin :disabled {
+    filter: opacity(0.4);
+  }
+
+  .btn-admin {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+}

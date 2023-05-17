@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+
+  --primeira: #042c2c;
+
+  --segunda: #e5b02c;
+
+  --terceira: #64622c;
+
+  --quarta: #74742c;
+}
