@@ -51,7 +51,6 @@ const create = async (req, res) => {
   const token = await generateToken({ name, email });
 
   return res.status(201).json({ token });
-<<<<<<< HEAD
 };
 
 const deleteUser = async (req, res) => {
@@ -59,8 +58,6 @@ const deleteUser = async (req, res) => {
   const allUsers = await userService.deleteId(id);
 
   return res.status(200).json(allUsers);
-=======
->>>>>>> bf77a0a (fix: details to make login possible)
 };
 
 module.exports = {
