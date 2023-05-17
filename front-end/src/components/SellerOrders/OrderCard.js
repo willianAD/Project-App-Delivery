@@ -27,31 +27,31 @@ class OrderCard extends Component {
 
         <div
           className="order-num"
-          data-testid="seller_orders__element-order-id-<id>"
+          data-testid={ `seller_orders__element-order-id-${orderNum}` }
         >
           <p>Pedido</p>
           <p>{orderNum}</p>
         </div>
 
-        <div className="order-status">
+        <div>
           <div>
             <p
-              data-testid="seller_orders__element-delivery-status-<id>"
+              data-testid={ `seller_orders__element-delivery-status-${orderNum}` }
             >
               {status.toUpperCase()}
             </p>
             <p
-              data-testid="seller_orders__element-order-date-<id>"
+              data-testid={ `seller_orders__element-order-date-${orderNum}` }
             >
               {formatDate(saleDate)}
             </p>
             <p
-              data-testid="seller_orders__element-card-price-<id>"
+              data-testid={ `seller_orders__element-card-price-${orderNum}` }
             >
               {formatterBrl.format(totalPrice)}
             </p>
             <p
-              data-testid="seller_orders__element-card-address-<id>"
+              data-testid={ `seller_orders__element-card-address-${orderNum}` }
             >
               {deliveryAddress}
             </p>
