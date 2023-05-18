@@ -1,0 +1,60 @@
+.order-main {
+  background-color: #C5E2E165;
+  min-height: 100vh;
+}
+
+.order-all {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: auto;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.product-card {
+  background-color: #E5E5E5AD;
+  border: none;
+  border-radius: 5px;
+  box-shadow: #32325D40 0px 2px 5px -1px, #0000004D 0px 1px 3px -1px;
+}
+
+.product-card > section {
+  display: flex;
+  align-items: center;
+}
+
+.product-card > section > div:nth-of-type(1) {
+  font-size: 18px;
+  padding: 15px;
+}
+
+.Entregue, .Preparando, .Pendente {
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+  padding: 25px;
+}
+
+.Entregue {
+  background-color:  #E5B02C;
+}
+
+.Preparando {
+  background-color: #66A966;
+}
+
+.Pendente {
+  background-color: #317E5B;
+}
+
+.date-price-card {
+  font-size: 16px;
+  font-weight: 900;
+  padding: 20px;
+}
+
+.date-price-card > p:nth-of-type(1) {
+  margin-bottom: 10px;
+}

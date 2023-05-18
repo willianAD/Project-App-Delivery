@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import NavbarUser from '../components/NavbarUser';
 import UserCard from '../components/UserCard';
 import { requestGet } from '../services/request';
+import '../styles/orders.css';
 
 class CustomerOrders extends React.Component {
   constructor() {
@@ -32,23 +33,26 @@ class CustomerOrders extends React.Component {
   render() {
     const { ordersArray } = this.state;
     return (
-      <main>
+      <main className="order-main">
         <NavbarUser />
-        { ordersArray.map((order, i) => (
-          <button
-            type="button"
-            key={ i }
-            onClick={ () => { this.handleClickOrder(order.id); } }
-          >
-            <UserCard
+        <div className="order-all">
+          { ordersArray.map((order, i) => (
+            <button
+              type="button"
               key={ i }
-              orderNum={ order.id }
-              status={ order.status }
-              saleDate={ order.saleDate }
-              totalPrice={ order.totalPrice }
-            />
-          </button>
-        )) }
+              onClick={ () => { this.handleClickOrder(order.id); } }
+              className="product-card"
+            >
+              <UserCard
+                key={ i }
+                orderNum={ order.id }
+                status={ order.status }
+                saleDate={ order.saleDate }
+                totalPrice={ order.totalPrice }
+              />
+            </button>
+          )) }
+        </div>
       </main>
     );
   }
