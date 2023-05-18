@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setLocalStorage } from '../helpers/index';
+import '../styles/checkoutTable.css';
 
 class CheckoutTable extends React.Component {
   handleRemoveProduct = (productName) => {
@@ -41,6 +42,7 @@ class CheckoutTable extends React.Component {
                 data-testid={
                   `customer_checkout__element-order-table-item-number-${index}`
                 }
+                data-label="Item"
               >
                 { index + 1 }
               </td>
@@ -48,6 +50,7 @@ class CheckoutTable extends React.Component {
                 data-testid={
                   `customer_checkout__element-order-table-name-${index}`
                 }
+                data-label="Descrição"
               >
                 { item.name }
               </td>
@@ -55,6 +58,7 @@ class CheckoutTable extends React.Component {
                 data-testid={
                   `customer_checkout__element-order-table-quantity-${index}`
                 }
+                data-label="Quantidade"
               >
                 { item.quantity }
               </td>
@@ -62,6 +66,7 @@ class CheckoutTable extends React.Component {
                 data-testid={
                   `customer_checkout__element-order-table-unit-price-${index}`
                 }
+                data-label="Unidade"
               >
                 { String(item.price).replace('.', ',') }
               </td>
@@ -69,11 +74,12 @@ class CheckoutTable extends React.Component {
                 data-testid={
                   `customer_checkout__element-order-table-sub-total-${index}`
                 }
+                data-label="Sub-total"
               >
                 { (Number(item.price) * item.quantity)
                   .toFixed(2).replace('.', ',') }
               </td>
-              <td>
+              <td data-label="Remover">
                 <button
                   type="button"
                   data-testid={

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import NavBar from '../components/NavBar';
 import { requestGet } from '../services/request';
+import '../styles/products.css';
 
 class Products extends React.Component {
   constructor() {
@@ -108,66 +109,85 @@ class Products extends React.Component {
     return (
       <>
         <NavBar />
-        <h1> Products </h1>
-        { products.map((product, index) => (
-          <div
-            key={ `customer_products__element-card-price-${index + 1}` }
-          >
-            <img
-              alt={ product.name }
-              src={ product.urlImage }
-              data-testid={ `customer_products__img-card-bg-image-${index + 1}` }
-            />
-            <p
-              data-testid={ `customer_products__element-card-price-${index + 1}` }
+        <h1 className="title-products"> PRODUTOS </h1>
+        <div className="paiCards-products">
+          { products.map((product, index) => (
+            <div
+              key={ `customer_products__element-card-price-${index + 1}` }
+              className="avoProduto-products"
             >
-              { String(product.price).replace('.', ',') }
-            </p>
-            <p
-              data-testid={ `customer_products__element-card-title-${index + 1}` }
-            >
-              { product.name }
-            </p>
-            <div>
-              <button
-                type="button"
-                data-testid={ `customer_products__button-card-rm-item-${index + 1}` }
-                onClick={ () => this.subCart(product.name, product.price) }
-              >
-                -
-              </button>
-              <input
-                data-testid={ `customer_products__input-card-quantity-${index + 1}` }
-                value={ shoppingCart.find((a) => a.name === product.name) === undefined
-                  ? 0 : shoppingCart.find((a) => a.name === product.name).quantity }
-                placeholder="0"
-                name={ product.name }
-                onChange={ (e) => this.handleChange(e, product.price, product.id) }
-              />
-              <button
-                type="button"
-                data-testid={ `customer_products__button-card-add-item-${index + 1}` }
-                onClick={ () => this.addCart(product.name, product.price, product.id) }
-              >
-                +
-              </button>
+              <div className="paiImgPrice-products">
+                <img
+                  alt={ product.name }
+                  src={ product.urlImage }
+                  data-testid={ `customer_products__img-card-bg-image-${index + 1}` }
+                  className="img-products"
+                />
+                <p
+                  data-testid={ `customer_products__element-card-price-${index + 1}` }
+                  className="price-products"
+                >
+                  { `R$ ${String(product.price).replace('.', ',')}` }
+                </p>
+              </div>
+              <div className="paiInputs">
+                <p
+                  data-testid={ `customer_products__element-card-title-${index + 1}` }
+                  className="name-products"
+                >
+                  { product.name }
+                </p>
+                <div className="inputPrice-products">
+                  <button
+                    type="button"
+                    data-testid={ `customer_products__button-card-rm-item-${index + 1}` }
+                    onClick={ () => this.subCart(product.name, product.price) }
+                    className="moreBtn-products"
+                  >
+                    -
+                  </button>
+                  <input
+                    data-testid={ `customer_products__input-card-quantity-${index + 1}` }
+                    value={ shoppingCart.find((a) => a.name === product.name)
+                       === undefined
+                      ? 0 : shoppingCart.find((a) => a.name === product.name).quantity }
+                    placeholder="0"
+                    name={ product.name }
+                    onChange={ (e) => this.handleChange(e, product.price, product.id) }
+                    className="quantity-products"
+                  />
+                  <button
+                    type="button"
+                    data-testid={ `customer_products__button-card-add-item-${index + 1}` }
+                    onClick={
+                      () => this.addCart(product.name, product.price, product.id)
+                    }
+                    className="lessBtn-products"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
-        <button
-          type="button"
-          data-testid="customer_products__button-cart"
-          disabled={ shoppingCartValue === 0 }
-          onClick={ () => history.push('/customer/checkout') }
-        >
-          Ver Carrinho: R$
-          {' '}
-          <span
-            data-testid="customer_products__checkout-bottom-value"
+          ))}
+        </div>
+        <div className="paiCheckoutBtn-products">
+          <button
+            type="button"
+            data-testid="customer_products__button-cart"
+            disabled={ shoppingCartValue === 0 }
+            onClick={ () => history.push('/customer/checkout') }
+            className="checkoutBtn-products"
           >
-            { (shoppingCartValue).toFixed(2).replace('.', ',') }
-          </span>
-        </button>
+            Ver Carrinho: R$
+            {' '}
+            <span
+              data-testid="customer_products__checkout-bottom-value"
+            >
+              { (shoppingCartValue).toFixed(2).replace('.', ',') }
+            </span>
+          </button>
+        </div>
       </>
     );
   }

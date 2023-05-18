@@ -1,0 +1,468 @@
+@media ( min-width : 320px ) and ( max-width : 479px ) {
+
+  .title-products {
+    color: rgb(253, 253, 253);
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .avoProduto-products {
+    align-items: center;
+    background-color: rgb(167, 167, 167);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 0;
+    width: 250px;
+  }
+
+  .paiImgPrice-products {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .img-products {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 250px;
+    width: 250px;
+  }
+
+  .price-products {
+    color: black;
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    margin: 10px 170px 0 0;
+    position: absolute;
+    text-align: center;
+  }
+
+  .name-products {
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 600;
+    margin: 15px 0 5px;
+    text-align: center;
+  }
+
+  .paiInputs {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputPrice-products {
+    margin: 5px 0 15px;
+  }
+
+  .moreBtn-products {
+    background-color: var(--segunda);
+    border: none;
+    border-bottom-left-radius: 12px;
+    border-top-left-radius: 12px;
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    padding: 5px 10px;
+  }
+
+  .lessBtn-products {
+    background-color: var(--segunda);
+    border: none;
+    border-bottom-right-radius: 12px;
+    border-top-right-radius: 12px;
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    padding: 5px 10px;
+  }
+
+  .quantity-products {
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    width: 100px;
+  }
+
+  .paiCheckoutBtn-products {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .checkoutBtn-products {
+    background-color: var(--segunda);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgb(78, 78, 78);
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    height: 50px;
+    margin: 0 0 30px;
+    padding: 12px 30px;
+    text-overflow: hidden;
+    width: 250px;
+  }
+}
+
+
+@media ( min-width : 480px ) and ( max-width : 600px ) {
+
+  .title-products {
+    color: rgb(253, 253, 253);
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .avoProduto-products {
+    align-items: center;
+    background-color: rgb(167, 167, 167);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 0;
+    width: 250px;
+  }
+
+  .paiImgPrice-products {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .img-products {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 250px;
+    width: 250px;
+  }
+
+  .price-products {
+    color: black;
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    margin: 10px 170px 0 0;
+    position: absolute;
+    text-align: center;
+  }
+
+  .name-products {
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 600;
+    margin: 15px 0 5px;
+    text-align: center;
+  }
+
+  .paiInputs {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputPrice-products {
+    margin: 5px 0 15px;
+  }
+
+  .moreBtn-products {
+    background-color: var(--segunda);
+    border: none;
+    border-bottom-left-radius: 12px;
+    border-top-left-radius: 12px;
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    padding: 5px 10px;
+  }
+
+  .lessBtn-products {
+    background-color: var(--segunda);
+    border: none;
+    border-bottom-right-radius: 12px;
+    border-top-right-radius: 12px;
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    padding: 5px 10px;
+  }
+
+  .quantity-products {
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    width: 100px;
+  }
+
+  .paiCheckoutBtn-products {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .checkoutBtn-products {
+    background-color: var(--segunda);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgb(78, 78, 78);
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    height: 50px;
+    margin: 0 0 30px;
+    padding: 12px 30px;
+    text-overflow: hidden;
+    width: 250px;
+  }
+}
+
+
+@media ( min-width : 601px ) and ( max-width : 800px ) {
+
+  .paiCards-products {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .title-products {
+    color: rgb(253, 253, 253);
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .avoProduto-products {
+    align-items: center;
+    background-color: rgb(167, 167, 167);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 250px;
+  }
+
+  .paiImgPrice-products {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .img-products {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 250px;
+    width: 250px;
+  }
+
+  .price-products {
+    color: black;
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    margin: 10px 170px 0 0;
+    position: absolute;
+    text-align: center;
+  }
+
+  .name-products {
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 600;
+    margin: 15px 0 5px;
+    text-align: center;
+  }
+
+  .paiInputs {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputPrice-products {
+    margin: 5px 0 15px;
+  }
+
+  .moreBtn-products {
+    background-color: var(--segunda);
+    border: none;
+    border-bottom-left-radius: 12px;
+    border-top-left-radius: 12px;
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    padding: 5px 10px;
+  }
+
+  .lessBtn-products {
+    background-color: var(--segunda);
+    border: none;
+    border-bottom-right-radius: 12px;
+    border-top-right-radius: 12px;
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    padding: 5px 10px;
+  }
+
+  .quantity-products {
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    width: 100px;
+  }
+
+  .paiCheckoutBtn-products {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .checkoutBtn-products {
+    background-color: var(--segunda);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgb(78, 78, 78);
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    height: 50px;
+    margin: 0 0 30px;
+    padding: 12px 30px;
+    text-overflow: hidden;
+    width: 250px;
+  }
+}
+
+
+@media ( min-width : 801px ) {
+
+  .paiCards-products {
+    align-items: center;
+    background-color: white;
+    border-radius: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 20px;
+    max-width: 90%;
+    padding: 20px 30px 10px 0;
+  }
+
+  .title-products {
+    color: rgb(253, 253, 253);
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .avoProduto-products {
+    align-items: center;
+    background-color: rgb(167, 167, 167);
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgb(73, 73, 73);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 250px;
+  }
+
+  .paiImgPrice-products {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .img-products {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 250px;
+    width: 250px;
+  }
+
+  .price-products {
+    color: black;
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    margin: 10px 170px 0 0;
+    position: absolute;
+    text-align: center;
+  }
+
+  .name-products {
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 600;
+    margin: 15px 0 5px;
+    text-align: center;
+  }
+
+  .paiInputs {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputPrice-products {
+    margin: 5px 0 15px;
+  }
+
+  .moreBtn-products {
+    background-color: var(--segunda);
+    border: none;
+    border-bottom-left-radius: 12px;
+    border-top-left-radius: 12px;
+    cursor: pointer;
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    padding: 5px 10px;
+  }
+
+  .lessBtn-products {
+    background-color: var(--segunda);
+    border: none;
+    border-bottom-right-radius: 12px;
+    border-top-right-radius: 12px;
+    cursor: pointer;
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    padding: 5px 10px;
+  }
+
+  .quantity-products {
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    width: 100px;
+  }
+
+  .paiCheckoutBtn-products {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .checkoutBtn-products {
+    background-color: var(--segunda);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgb(78, 78, 78);
+    cursor: pointer;
+    font-family: Arial , Helvetica , sans-serif;
+    font-weight: 900;
+    height: 50px;
+    margin: 0 0 30px;
+    padding: 12px 30px;
+    text-overflow: hidden;
+    width: 250px;
+  }
+
+  .checkoutBtn-products:hover {
+    scale: 1.02;
+  }
+}

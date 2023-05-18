@@ -99,9 +99,9 @@ class Checkout extends React.Component {
   render() {
     const { shoppingCartValue, shoppingCart, sellers, details } = this.state;
     return (
-      <>
+      <div className="paiCheckout">
         <NavBar />
-        <h1> Finalizar Pedido </h1>
+        <h1 className="title-checkout"> FINALIZAR PEDIDO </h1>
         { shoppingCart.length > 0
           ? (
             <CheckoutTable
@@ -111,25 +111,26 @@ class Checkout extends React.Component {
             />
           )
           : <p> Você não possui produtos no carrinho  </p>}
-        <p>
+        <p className="price-checkout">
           Total: R$
-          {' '}
           <span
             data-testid="customer_checkout__element-order-total-price"
           >
             {(shoppingCartValue).toFixed(2).replace('.', ',')}
           </span>
         </p>
-        <form>
-          <h2> Detalhes e Endereço para Entrega </h2>
-          <div>
+        <form className="form-login">
+          <h2 className="title-register"> Detalhes e Endereço para Entrega </h2>
+          <div className="paiInputs-register">
             <label htmlFor="seller">
+              <span className="labelName">Pessoa Vendedora</span>
               <select
                 id="seller"
                 name="seller"
                 data-testid="customer_checkout__select-seller"
                 value={ details.sellerId }
                 onChange={ (e) => this.handleChange('seller', e.target.value) }
+                className="inputRole-admin"
               >
                 {sellers.map((user) => (
                   <option
@@ -141,7 +142,7 @@ class Checkout extends React.Component {
               </select>
             </label>
             <label htmlFor="address">
-              Endereço
+              <span className="labelName">Endereço</span>
               <input
                 id="address"
                 name="address"
@@ -149,12 +150,13 @@ class Checkout extends React.Component {
                 value={ details.address }
                 onChange={ (e) => this.handleChange('address', e.target.value) }
                 data-testid="customer_checkout__input-address"
+                className="inputName-register"
               />
             </label>
             <label
               htmlFor="address-number"
             >
-              Número
+              <span className="labelName">Número</span>
               <input
                 id="address-number"
                 name="address-number"
@@ -163,18 +165,22 @@ class Checkout extends React.Component {
                 value={ details.addressNumber }
                 onChange={ (e) => this.handleChange('addressNumber', e.target.value) }
                 data-testid="customer_checkout__input-address-number"
+                className="inputName-register"
               />
             </label>
           </div>
-          <button
-            type="button"
-            data-testid="customer_checkout__button-submit-order"
-            onClick={ () => this.finish() }
-          >
-            FINALIZAR PEDIDO
-          </button>
+          <div className="btn-admin">
+            <button
+              type="button"
+              data-testid="customer_checkout__button-submit-order"
+              onClick={ () => this.finish() }
+              className="buttonRegister-admin"
+            >
+              FINALIZAR PEDIDO
+            </button>
+          </div>
         </form>
-      </>
+      </div>
     );
   }
 }
