@@ -1,0 +1,89 @@
+.order-details-main {
+  background-color: white;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 91vh;
+}
+
+.order-details-main > h1 {
+  font-size: 20px;
+  margin-top: 30px;
+  align-self: baseline;
+  margin-left: 15%;
+}
+
+.order-details-table-head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  background-color: #f0fbf9;
+  padding: 15px;
+}
+
+.order-details-focus {
+  border: 2px solid #d1d8d79d;
+  padding: 20px;
+}
+
+[data-testid="customer_order_details__element-order-details-label-order-id"],
+[data-testid="customer_order_details__element-order-details-label-order-date"],
+.status {
+  font-weight: 900;
+  font-size: 20px;
+}
+
+[data-testid="customer_order_details__button-delivery-check"] {
+  background-color: #036B52;
+  border: none;
+  color: white;
+  font-weight: 900;
+  font-size: 20px;
+  font-weight: 100;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+[data-testid="customer_order_details__element-order-total-price"] {
+  background-color: #036B52;
+  color: white;
+  font-weight: 900;
+  font-size: 30px;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 54%;
+  margin-top: 20px;
+  padding: 15px;
+}
+
+[data-testid="customer_order_details__element-order-details-label-seller-name"] {
+  font-size: 20px;
+}
+
+.details-table {
+  border-collapse: separate;
+  border-spacing: 0 5px;
+}
+
+.table-line > td {
+  background-color: #eaf1ef;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.table-line > td:nth-of-type(1) {
+  background-color: #64622C;
+  border-radius: 5px 0 0 5px;
+  font-weight: 900;
+  color: white;
+}
+
+.table-line > td:nth-of-type(5) {
+  background-color: #E5B02C;
+  border-radius: 0px 5px 5px 0px;
+  font-weight: 800;
+  color: white;
+}

@@ -23,7 +23,7 @@ class CheckoutTable extends React.Component {
   render() {
     const { shoppingCart } = this.props;
     return (
-      <table>
+      <table className="details-table">
         <thead>
           <tr>
             <th>Item</th>
