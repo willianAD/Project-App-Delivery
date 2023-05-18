@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import { requestGet, requestPut } from '../services/request';
 import NavBar from '../components/NavBar';
 import '../styles/orderDetails.css';
+import DetailsOrderTable from '../components/DetailsOrderTable';
 
-class Orders extends React.Component {
+class CustomerDetailsOrder extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -109,59 +110,15 @@ class Orders extends React.Component {
                   Marcar como entregue
                 </button>
               </div>
-              <table className="details-table">
-                <thead>
-                  <tr>
-                    <th>Item</th>
-                    <th>Descrição</th>
-                    <th>Quantidade</th>
-                    <th>Valor Unitário</th>
-                    <th>Sub-total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  { sale.products ? sale.products.map((a, index) => (
-                    <tr key={ index } className="table-line">
-                      <td
-                        data-testid={ `${dataTest}table-item-number-${index}` }
-                        className="item-index"
-                      >
-                        { index + 1 }
-                      </td>
-                      <td
-                        data-testid={ `${dataTest}table-name-${index}` }
-                      >
-                        { a.name }
-                      </td>
-                      <td
-                        data-testid={ `${dataTest}table-quantity-${index}` }
-                      >
-                        { a.SalesProduct.quantity }
-                      </td>
-                      <td
-                        data-testid={ `${dataTest}table-sub-total-${index}` }
-                      >
-                        { a.price }
-                      </td>
-                      <td
-                        data-testid={ `${dataTest}table-unit-price-${index}` }
-                      >
-                        {
-                          (Number(a.SalesProduct.quantity) * Number(a.price)).toFixed(2)
-                        }
-                      </td>
-                    </tr>
-                  )) : <p> Loading </p> }
-                </tbody>
-              </table>
+              <DetailsOrderTable dataTest={ dataTest } saleProducts={ sale.products } />
             </div>
             <p
               data-testid={ `${dataTest}total-price` }
             >
               Total: R$
-              <spna>
+              <span>
                 { sale.totalPrice.replace('.', ',') }
-              </spna>
+              </span>
             </p>
           </main>
         </>
@@ -170,10 +127,10 @@ class Orders extends React.Component {
   }
 }
 
-Orders.propTypes = {
+CustomerDetailsOrder.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
 };
 
-export default connect()(Orders);
+export default connect()(CustomerDetailsOrder);
