@@ -26,6 +26,7 @@
     "jsonwebtoken": "8.5.1",
     "md5": "2.3.0",
     "mysql2": "2.3.3",
+    "react-icons": "^4.8.0",
     "sequelize": "6.17.0"
   },
   "devDependencies": {

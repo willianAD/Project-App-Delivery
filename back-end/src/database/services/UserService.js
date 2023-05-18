@@ -1,14 +1,14 @@
+const { Op } = require('sequelize');
 const { User } = require('../models');
-const { Op } = require("sequelize");
 
 const findOneLogin = async (email, name = '') => {
   const result = await User.findOne({
     where: {
       [Op.or]: [
         { email },
-        { name }
-      ]
-    }
+        { name },
+      ],
+    },
   });
   return result;
 };
@@ -29,6 +29,8 @@ const create = (user) => User.create(user);
 
 const getById = (id) => User.findByPk(id);
 
+const deleteId = (id) => User.destroy({ where: { id } });
+
 module.exports = {
   getAll,
   create,
@@ -36,4 +38,5 @@ module.exports = {
   findOneRole,
   findOneLogin,
   findOneEmail,
+  deleteId,
 };
