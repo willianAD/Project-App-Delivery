@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { requestGet, requestPut } from '../services/request';
 import NavBar from '../components/NavBar';
+import '../styles/orderDetails.css';
+import DetailsOrderTable from '../components/DetailsOrderTable';
 
-class Orders extends React.Component {
+class CustomerDetailsOrder extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -70,92 +72,65 @@ class Orders extends React.Component {
       sale.products ? (
         <>
           <NavBar />
-          <h1>Detalhe do pedido</h1>
-          <div>
-            <div>
-              <p
-                data-testid={ `${dataTest}details-label-order-id` }
-              >
-                PEDIDO
-                {' '}
-                { sale.id }
-              </p>
-              <p
-                data-testid={ `${dataTest}details-label-seller-name` }
-              >
-                P.Vendedora:
-                {' '}
-                { sale.seller.name }
-              </p>
-              <p
-                data-testid={ `${dataTest}details-label-order-date` }
-              >
-                { sale.saleDate }
-              </p>
-              <p
-                data-testid={ `${dataTest}details-label-delivery-status${sale.id}` }
-              >
-                { status }
-              </p>
-              <button
-                data-testid="customer_order_details__button-delivery-check"
-                type="button"
-                onClick={ this.checkSale }
-                disabled={ button }
-              >
-                Marcar como entregue
-              </button>
+          <main className="order-details-main">
+            <h1>Detalhes do pedido</h1>
+            <div className="order-details-focus">
+              <div className="order-details-table-head">
+                <p
+                  data-testid={ `${dataTest}details-label-order-id` }
+                >
+                  PEDIDO
+                  {' '}
+                  { sale.id }
+                </p>
+                <p
+                  data-testid={ `${dataTest}details-label-seller-name` }
+                >
+                  P.Vendedora:
+                  {' '}
+                  { sale.seller.name }
+                </p>
+                <p
+                  data-testid={ `${dataTest}details-label-order-date` }
+                >
+                  { sale.saleDate }
+                </p>
+                <p
+                  className="status"
+                  data-testid={ `${dataTest}details-label-delivery-status${sale.id}` }
+                >
+                  { status }
+                </p>
+                <button
+                  data-testid="customer_order_details__button-delivery-check"
+                  type="button"
+                  onClick={ this.checkSale }
+                  disabled={ button }
+                >
+                  Marcar como entregue
+                </button>
+              </div>
+              <DetailsOrderTable dataTest={ dataTest } saleProducts={ sale.products } />
             </div>
-            { sale.products ? sale.products.map((a, index) => (
-              <>
-                <p
-                  data-testid={ `${dataTest}table-item-number-${index}` }
-                >
-                  { index + 1 }
-                </p>
-                <p
-                  data-testid={ `${dataTest}table-name-${index}` }
-                >
-                  { a.name }
-                </p>
-                <p
-                  data-testid={ `${dataTest}table-quantity-${index}` }
-                >
-                  { a.quantity }
-                </p>
-                <p
-                  data-testid={ `${dataTest}table-sub-total-${index}` }
-                >
-                  { a.price }
-                </p>
-                <p
-                  data-testid={ `${dataTest}table-unit-price-${index}` }
-                >
-                  {
-                    (Number(a.SalesProduct.quantity) * Number(a.price)).toFixed(2)
-                  }
-                </p>
-              </>
-            )) : <p> Loading </p> }
             <p
               data-testid={ `${dataTest}total-price` }
             >
               Total: R$
-              <spna>
+              <span>
                 { sale.totalPrice.replace('.', ',') }
-              </spna>
+              </span>
             </p>
-          </div>
+          </main>
         </>
       ) : <p> Loading </p>
     );
   }
 }
 
-Orders.propTypes = {
+CustomerDetailsOrder.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
 };
 
-export default connect()(Orders);
+export default connect()(CustomerDetailsOrder);
