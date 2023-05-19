@@ -1,0 +1,94 @@
+.order-details-main {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  min-height: 91vh;
+}
+
+.order-details-main > h1 {
+  align-self: baseline;
+  font-size: 20px;
+  margin-left: 15%;
+  margin-top: 30px;
+}
+
+.order-details-table-head {
+  align-items: center;
+  background-color: #f0fbf9;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  padding: 15px;
+}
+
+.order-details-focus {
+  border: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px , rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+  padding: 20px;
+}
+
+/* [ data-testid = 'customer_order_details__element-order-details-label-order-date'
+].status {
+  font-size: 20px;
+  font-weight: 900;
+} */
+
+[ data-testid = 'customer_order_details__element-order-details-label-order-id' ].status {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+[ data-testid = 'customer_order_details__button-delivery-check' ] {
+  background-color: #036b52;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 100;
+  padding: 10px;
+}
+
+[ data-testid = 'customer_order_details__element-order-total-price' ] {
+  background-color: #036b52;
+  border-radius: 5px;
+  color: white;
+  font-size: 30px;
+  font-weight: 900;
+  margin-left: 54%;
+  margin-top: 20px;
+  padding: 15px;
+  text-align: center;
+}
+
+[ data-testid = 'customer_order_details__element-order-details-label-seller-name' ] {
+  font-size: 20px;
+}
+
+.details-table {
+  border-collapse: separate;
+  border-spacing: 0 5px;
+}
+
+.table-line > td {
+  background-color: #eaf1ef;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px 0 inset;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.table-line > td:nth-of-type( 1 ) {
+  background-color: #64622c;
+  border-radius: 5px 0 0 5px;
+  color: white;
+  font-weight: 900;
+}
+
+.table-line > td:nth-of-type( 5 ) {
+  background-color: #e5c02c;
+  border-radius: 0 5px 5px 0;
+  color: white;
+  font-weight: 800;
+}

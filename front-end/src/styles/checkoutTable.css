@@ -1,0 +1,36 @@
+.price-checkout {
+  background-color: var(--segunda);
+  border-radius: 2px;
+  color: white;
+  font-family: Arial , Helvetica , sans-serif;
+  font-size: 30px;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+  width: 400px;
+}
+
+.title-checkout {
+  color: white;
+  font-family: Arial , Helvetica , sans-serif;
+  font-size: 30px;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+  width: 400px;
+}
+
+.paiCheckout {
+  padding-bottom: 10px;
+}
+
+.labelName {
+  color: white;
+  font-family: Arial , Helvetica , sans-serif;
+  font-size: 20px;
+  margin-right: 10px;
+}

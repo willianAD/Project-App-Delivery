@@ -10,6 +10,7 @@ import { requestPost, setToken } from '../services/request';
 import AdminList from '../components/AdminList';
 import PageNotFound from '../components/PageNotFound';
 import '../styles/admin.css';
+import NavBar from '../components/NavBar';
 
 class Admin extends React.Component {
   constructor() {
@@ -71,6 +72,7 @@ class Admin extends React.Component {
       name, messageError, role, url, roleAtual } = this.state;
     return (
       <div>
+        <NavBar />
         {
           url === '/admin/manage' && roleAtual === 'administrator'
             ? (

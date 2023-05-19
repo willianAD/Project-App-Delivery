@@ -424,9 +424,14 @@
 @media ( min-width : 801px ) and ( max-width : 1399px ) {
 
   .paiTable-adminList {
-    background-color: rgb(251, 251, 251);
-    margin: 20px 0;
+    background-color: white;
+    border-radius: 12px;
+    margin: auto;
+    margin-bottom: 40px;
+    margin-top: 40px;
     overflow-y: hidden;
+    padding: 20px 30px 40px 0;
+    width: 80%;
   }
 
   .title-adminList {
@@ -452,7 +457,7 @@
     display: flex;
     flex-flow: row;
     justify-content: center;
-    padding: 0 10px;
+    padding: 10px 25px;
     position: relative;
   }
 
@@ -503,10 +508,12 @@
   }
 
   table {
+    border-bottom: 5px solid var(--segunda);
     border-collapse: collapse;
     font-family: Arial , Helvetica , sans-serif;
+    margin: auto;
     margin-top: 30px;
-    width: 100%;
+    width: 85%;
   }
 
   table tbody tr:nth-child( even ) {
@@ -514,16 +521,26 @@
   }
 
   table tbody tr:nth-child( odd ) {
-    background-color: #e8d4a3;
+    background-color: #dadada;
   }
 
   th {
+    background-color: var(--segunda);
     padding: 10px;
     text-align: center;
   }
 
+  th:nth-child( 1 ) {
+    border-top-left-radius: 12px;
+  }
+
+  th:last-child {
+    border-top-right-radius: 12px;
+  }
+
   td {
     margin: 10px;
+    padding: 10px;
     text-align: center;
   }
 
@@ -532,9 +549,14 @@
 @media ( min-width : 1400px ) {
 
   .paiTable-adminList {
-    background-color: rgb(251, 251, 251);
-    margin: 20px 0;
+    background-color: white;
+    border-radius: 12px;
+    margin: auto;
+    margin-bottom: 40px;
+    margin-top: 40px;
     overflow-y: hidden;
+    padding: 20px 30px 40px 0;
+    width: 80%;
   }
 
   .title-adminList {
@@ -560,7 +582,7 @@
     display: flex;
     flex-flow: row;
     justify-content: center;
-    padding: 0 10px;
+    padding: 10px 25px;
     position: relative;
   }
 
@@ -611,11 +633,12 @@
   }
 
   table {
+    border-bottom: 5px solid var(--segunda);
     border-collapse: collapse;
     font-family: Arial , Helvetica , sans-serif;
     margin: auto;
     margin-top: 30px;
-    width: 1200px;
+    width: 85%;
   }
 
   table tbody tr:nth-child( even ) {
@@ -623,16 +646,26 @@
   }
 
   table tbody tr:nth-child( odd ) {
-    background-color: #e8d4a3;
+    background-color: #dadada;
   }
 
   th {
+    background-color: var(--segunda);
     padding: 10px;
     text-align: center;
   }
 
+  th:nth-child( 1 ) {
+    border-top-left-radius: 12px;
+  }
+
+  th:last-child {
+    border-top-right-radius: 12px;
+  }
+
   td {
     margin: 10px;
+    padding: 10px;
     text-align: center;
   }
 

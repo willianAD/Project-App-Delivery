@@ -24,22 +24,27 @@ class UserCard extends React.Component {
 
     return (
       <section>
-        <div data-testid={ `customer_orders__element-order-id-${orderNum}` }>
+        <div
+          data-testid={ `customer_orders__element-order-id-${orderNum}` }
+          className="index-order"
+        >
           <p>Pedido</p>
           <p>{orderNum}</p>
         </div>
-        <div>
-          <div>
-            <p data-testid={ `customer_orders__element-delivery-status-${orderNum}` }>
-              {status}
-            </p>
-            <p data-testid={ `customer_orders__element-order-date-${orderNum}` }>
-              {formatDate(saleDate)}
-            </p>
-            <p data-testid={ `customer_orders__element-card-price-${orderNum}` }>
-              {formatterBrl.format(totalPrice)}
-            </p>
-          </div>
+        <div className={ status }>
+          <p
+            data-testid={ `customer_orders__element-delivery-status-${orderNum}` }
+          >
+            {status}
+          </p>
+        </div>
+        <div className="date-price-card">
+          <p data-testid={ `customer_orders__element-order-date-${orderNum}` }>
+            {formatDate(saleDate)}
+          </p>
+          <p data-testid={ `customer_orders__element-card-price-${orderNum}` }>
+            {formatterBrl.format(totalPrice)}
+          </p>
         </div>
       </section>
     );
