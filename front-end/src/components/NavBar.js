@@ -4,7 +4,21 @@ import { Link } from 'react-router-dom';
 import '../styles/navBar.css';
 
 class NavBar extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      role: '',
+    };
+  }
+
+  componentDidMount() {
+    const { role } = JSON.parse(localStorage.getItem('user'));
+    this.setState({ role });
+  }
+
   render() {
+    const { role } = this.state;
+
     return (
       <nav>
         <div className="paiLinks-nav">
@@ -26,6 +40,18 @@ class NavBar extends React.Component {
               <p className="link">Meus pedidos</p>
             </Link>
           </div>
+          {role === 'administrator'
+            ? (
+              <div className="nav-link">
+                <Link
+                  to="/admin/manage"
+                  data-testid="customer_products__element-navbar-link-orders"
+                  className="link"
+                >
+                  <p className="link">Admin Page</p>
+                </Link>
+              </div>
+            ) : null}
         </div>
         <div className="paiName-nav">
           <p
