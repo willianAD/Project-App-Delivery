@@ -29,8 +29,8 @@ const getAllById = async (req, res) => {
 const create = async (req, res) => {
   const sale = req.body;
 
-  if (sale.status !== 'Pendente' && sale.status !== 'Entregue' && sale.status !==  'Preparando'
-    && sale.status !== 'Em Trânsito') return res.status(422).json({ message: 'Status is not valid' });
+  if (sale.status !== 'Pendente' && sale.status !== 'Entregue' && sale.status !== 'Preparando'
+  && sale.status !== 'Em Trânsito') return res.status(422).json({ message: 'Status is not valid' });
 
   const saleCreated = await saleService.create(sale);
 

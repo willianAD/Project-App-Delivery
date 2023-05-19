@@ -6,7 +6,7 @@ services:
       - 3000:3000
     platform: linux/x86_64
     working_dir: /app-frontend
-    volumes: 
+    volumes:
       - ./front-end/src:/app-frontend/src
     depends_on:
       - backend
@@ -18,8 +18,8 @@ services:
     platform: linux/x86_64
     working_dir: /app-backend
     # Caso queira que o container esteja atualizado durante o desenvolvimento, sem que você precise ficar fazendo down e up dos containers, descomente as 3 linhas abaixo
-    command: dev 
-    volumes: 
+    command: dev
+    volumes:
       - ./back-end/src:/app-backend/src
     depends_on:
       - db
