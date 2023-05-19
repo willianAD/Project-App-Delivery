@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { requestGet, requestPut } from '../services/request';
-import NavBar from '../components/NavBar';
+import NavbarUser from '../components/NavbarUser';
 
 class Orders extends React.Component {
   constructor() {
@@ -33,13 +33,10 @@ class Orders extends React.Component {
   formatDate = async (date) => {
     const dateFormat = new Date(date);
     const ten = 10;
-
     const year = dateFormat.getFullYear();
     const day = dateFormat.getDate();
     const wrorngFormatMonth = dateFormat.getMonth() + 1;
-
     const month = wrorngFormatMonth >= ten ? wrorngFormatMonth : `0${wrorngFormatMonth}`;
-
     return `${day}/${month}/${year}`;
   };
 
@@ -54,12 +51,10 @@ class Orders extends React.Component {
       deliveryNumber: sale.deliveryNumber,
       status: newStatus,
     };
-
     this.setState({
       status: newStatus,
       button: true,
     });
-
     await requestPut(`/seller/${sale.id}`, body);
   };
 
@@ -69,7 +64,7 @@ class Orders extends React.Component {
     return (
       sale.products ? (
         <>
-          <NavBar />
+          <NavbarUser />
           <h1>Detalhe do pedido</h1>
           <div>
             <div>
@@ -151,11 +146,9 @@ class Orders extends React.Component {
     );
   }
 }
-
 Orders.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
 };
-
 export default connect()(Orders);

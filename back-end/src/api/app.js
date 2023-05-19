@@ -14,7 +14,7 @@ app.use('/user', userRoutes);
 
 app.use('/product', productRoutes);
 
-app.use('/seller/orders', saleRoutes);
+app.use('/seller/orders/details', saleRoutes);
 
 app.use('/seller', saleRoutes);
 

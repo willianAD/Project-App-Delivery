@@ -9,7 +9,7 @@ saleRoutes.get('/orders', sale.getAll);
 
 saleRoutes.post('/orders', sale.create);
 
-saleRoutes.get('/details', sale.getDetailsById);
+saleRoutes.get('/:id', sale.getDetailsById);
 
 saleRoutes.put('/:id', sale.putDetails);
 
