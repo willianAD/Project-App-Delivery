@@ -26,7 +26,7 @@ class Orders extends React.Component {
     this.setState({
       sale: { ...sale, saleDate: (await newDate).toString() },
       status: sale.status,
-      button: sale.status !== 'Entregue',
+      button: sale.status !== 'Em Trânsito',
     });
   };
 

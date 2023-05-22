@@ -38,7 +38,7 @@ class OrderCard extends Component {
             <p
               data-testid={ `seller_orders__element-delivery-status-${orderNum}` }
             >
-              {status.toUpperCase()}
+              {status}
             </p>
             <p
               data-testid={ `seller_orders__element-order-date-${orderNum}` }
