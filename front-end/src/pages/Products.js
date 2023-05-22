@@ -12,6 +12,7 @@ class Products extends React.Component {
       products: [],
       shoppingCart: [],
       shoppingCartValue: 0.00,
+      entra: false,
     };
   }
 
@@ -21,10 +22,25 @@ class Products extends React.Component {
   }
 
   componentDidUpdate(_prevProps, prevState) {
-    const { shoppingCartValue, shoppingCart } = this.state;
+    const { shoppingCartValue, shoppingCart, entra } = this.state;
     if (prevState.shoppingCartValue !== shoppingCartValue) {
       localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
       localStorage.setItem('shoppingCartValue', JSON.stringify(shoppingCartValue));
+    }
+    const shoppingCartValue2 = localStorage.getItem('shoppingCartValue');
+
+    if (shoppingCartValue2 !== shoppingCartValue) {
+      const a = shoppingCart.filter((e) => e.quantity !== 0);
+      localStorage.setItem('shoppingCart', JSON.stringify(a));
+      if (!a.length) {
+        localStorage.setItem('shoppingCartValue', JSON.stringify(0.00));
+        const shoppingCartValue3 = localStorage.getItem('shoppingCartValue');
+        console.log(shoppingCartValue3);
+
+        if (entra) {
+          this.setState({ shoppingCartValue: 0.00, entra: false });
+        }
+      }
     }
   }
 
@@ -85,14 +101,18 @@ class Products extends React.Component {
 
   handleChange = ({ target }, price) => {
     const { shoppingCart, shoppingCartValue } = this.state;
+    console.log(shoppingCartValue);
+
+    this.setState({ entra: true });
     const product = shoppingCart.find((a) => (
       a.name === target.name
     ));
+
     if (product) {
       product.quantity = Number(target.value);
       this.setState({
         shoppingCart,
-        shoppingCartValue: shoppingCartValue + (target.value * price),
+        shoppingCartValue: shoppingCartValue + (product.quantity * price),
       });
     } else {
       this.setState({
