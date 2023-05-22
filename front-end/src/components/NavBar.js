@@ -63,7 +63,7 @@ class NavBar extends React.Component {
         <div className="paiSair-nav">
           <Link
             data-testid="customer_products__element-navbar-link-logout"
-            onClick={ () => localStorage.removeItem('user') }
+            onClick={ () => localStorage.clear() }
             to="/login"
             className="link"
           >
