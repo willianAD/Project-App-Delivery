@@ -86,6 +86,7 @@ class CheckoutTable extends React.Component {
                     `customer_checkout__element-order-table-remove-${index}`
                   }
                   onClick={ () => this.handleRemoveProduct(item.name) }
+                  className="btnDelete-adminList"
                 >
                   Remover Item
                 </button>

@@ -31,18 +31,13 @@ class SellerOrders extends Component {
   }
 
   render() {
-    const {
-      ordersArray,
-    } = this.state;
+    const { ordersArray } = this.state;
 
     return (
       <main>
         <section className="nav-bar">
-          <Navbar> Navbar </Navbar>
+          <Navbar />
         </section>
-        {/*
-            FAZER UM MAP EM TODOS OS PEDIDOS E PARA CADA PEDIDO
-            RENDERIZAR O ELEMENTO ABAIXO */}
         { ordersArray.map((order, key) => (
           <button
             type="button"
@@ -59,11 +54,11 @@ class SellerOrders extends Component {
             />
           </button>
         )) }
-
       </main>
     );
   }
 }
+
 SellerOrders.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,

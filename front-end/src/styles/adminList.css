@@ -575,15 +575,11 @@
   }
 
   .btnDelete-adminList {
-    align-items: center;
     background-color: rgb(180, 13, 13);
     border: none;
     border-radius: 12px;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
+    font-family: Arial , Helvetica , sans-serif;
     padding: 10px 25px;
-    position: relative;
   }
 
   .iconDelete-adminList {

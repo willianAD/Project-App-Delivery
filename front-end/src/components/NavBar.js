@@ -57,7 +57,7 @@ class NavBar extends React.Component {
           <p
             data-testid="customer_products__element-navbar-user-full-name"
           >
-            { JSON.parse((localStorage.getItem('user'))).name}
+            { JSON.parse((localStorage.getItem('user'))).name }
           </p>
         </div>
         <div className="paiSair-nav">
