@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { requestGet, requestPut } from '../services/request';
-import NavbarUser from '../components/NavbarUser';
+import Navbar from '../components/NavBar';
 
 class Orders extends React.Component {
   constructor() {
@@ -64,7 +64,7 @@ class Orders extends React.Component {
     return (
       sale.products ? (
         <>
-          <NavbarUser />
+          <Navbar />
           <h1>Detalhe do pedido</h1>
           <div>
             <div>

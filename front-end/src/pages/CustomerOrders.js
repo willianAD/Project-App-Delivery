@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NavbarUser from '../components/NavbarUser';
+import Navbar from '../components/NavBar';
 import UserCard from '../components/UserCard';
 import { requestGet } from '../services/request';
 import '../styles/orders.css';
@@ -34,7 +34,7 @@ class CustomerOrders extends React.Component {
     const { ordersArray } = this.state;
     return (
       <main className="order-main">
-        <NavbarUser />
+        <Navbar />
         <div className="order-all">
           { ordersArray.map((order, i) => (
             <button

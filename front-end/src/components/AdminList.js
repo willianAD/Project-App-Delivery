@@ -1,5 +1,4 @@
 import React from 'react';
-// import { MdOutlineDelete } from 'react-icons/md';
 import { requestDelete, requestGet, setToken } from '../services/request';
 import '../styles/adminList.css';
 
@@ -39,27 +38,6 @@ class AdminList extends React.Component {
     return (
       <div className="paiTable-adminList">
         <h1 className="title-adminList">Lista de usuários</h1>
-        {/* <div className="paiSearch">
-          <label htmlFor="search" className="inputPai-admin">
-            <input
-              id="search"
-              name="search"
-              type="search"
-              data-testid="admin_manage__input-search"
-              placeholder="Pesquise por nome, email ou tipo"
-              value={ search }
-              onChange={ this.handleChange }
-              className="inputSearch-adminList"
-            />
-            <button
-              type="submit"
-              onClick={ this.search }
-              className="btnSearch-adminList"
-            >
-              <p>{ searchBtn }</p>
-            </button>
-          </label>
-        </div> */}
         <table className="table-adminList">
           <thead>
             <tr>
@@ -106,7 +84,6 @@ class AdminList extends React.Component {
                     className="btnDelete-adminList"
                   >
                     Excluir
-                    {/* <MdOutlineDelete className="iconDelete-adminList" value={ ele.id } /> */}
                   </button>
                 </td>
               </tr>))}
