@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Project-App-Delivery/static/css/main.3da5da1b.css",
+    "main.js": "/Project-App-Delivery/static/js/main.7813924d.js",
+    "static/js/787.6a22b74d.chunk.js": "/Project-App-Delivery/static/js/787.6a22b74d.chunk.js",
+    "static/media/DrinkUp.png": "/Project-App-Delivery/static/media/DrinkUp.4a5240b53efbaed78e12.png",
+    "index.html": "/Project-App-Delivery/index.html",
+    "main.3da5da1b.css.map": "/Project-App-Delivery/static/css/main.3da5da1b.css.map",
+    "main.7813924d.js.map": "/Project-App-Delivery/static/js/main.7813924d.js.map",
+    "787.6a22b74d.chunk.js.map": "/Project-App-Delivery/static/js/787.6a22b74d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3da5da1b.css",
+    "static/js/main.7813924d.js"
+  ]
+}
